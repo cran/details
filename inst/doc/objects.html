@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<title>Special Details</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#header {
+text-align: center;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Special Details</h1>
+
+
+
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">library</span>(details)</a></code></pre></div>
+<p>You can wrap print methods of R objects in a <code>details</code> environment.</p>
+<ol style="list-style-type: decimal">
+<li><a href="#data.frame">data.frame</a></li>
+<li><a href="#tibble">tibble</a></li>
+<li><a href="#list">list</a></li>
+<li><a href="#plots">plots</a></li>
+</ol>
+<div id="data.frame" class="section level3">
+<h3>data.frame</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"> iris<span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="st">  </span>details<span class="op">::</span><span class="kw">details</span>(<span class="dt">summary =</span> <span class="st">&#39;data.frame&#39;</span>)</a></code></pre></div>
+<details closed>
+<p><summary> <span title="Click to Expand"> data.frame </span> </summary></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"></a>
+<a class="sourceLine" id="cb3-2" title="2">    Sepal.Length Sepal.Width Petal.Length Petal.Width    Species</a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="dv">1</span>            <span class="fl">5.1</span>         <span class="fl">3.5</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span>     setosa</a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="dv">2</span>            <span class="fl">4.9</span>         <span class="fl">3.0</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span>     setosa</a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="dv">3</span>            <span class="fl">4.7</span>         <span class="fl">3.2</span>          <span class="fl">1.3</span>         <span class="fl">0.2</span>     setosa</a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="dv">4</span>            <span class="fl">4.6</span>         <span class="fl">3.1</span>          <span class="fl">1.5</span>         <span class="fl">0.2</span>     setosa</a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="dv">5</span>            <span class="fl">5.0</span>         <span class="fl">3.6</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span>     setosa</a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="dv">6</span>            <span class="fl">5.4</span>         <span class="fl">3.9</span>          <span class="fl">1.7</span>         <span class="fl">0.4</span>     setosa</a>
+<a class="sourceLine" id="cb3-9" title="9"><span class="dv">7</span>            <span class="fl">4.6</span>         <span class="fl">3.4</span>          <span class="fl">1.4</span>         <span class="fl">0.3</span>     setosa</a>
+<a class="sourceLine" id="cb3-10" title="10"><span class="dv">8</span>            <span class="fl">5.0</span>         <span class="fl">3.4</span>          <span class="fl">1.5</span>         <span class="fl">0.2</span>     setosa</a>
+<a class="sourceLine" id="cb3-11" title="11"><span class="dv">9</span>            <span class="fl">4.4</span>         <span class="fl">2.9</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span>     setosa</a>
+<a class="sourceLine" id="cb3-12" title="12"><span class="dv">10</span>           <span class="fl">4.9</span>         <span class="fl">3.1</span>          <span class="fl">1.5</span>         <span class="fl">0.1</span>     setosa</a>
+<a class="sourceLine" id="cb3-13" title="13"><span class="dv">11</span>           <span class="fl">5.4</span>         <span class="fl">3.7</span>          <span class="fl">1.5</span>         <span class="fl">0.2</span>     setosa</a>
+<a class="sourceLine" id="cb3-14" title="14"><span class="dv">12</span>           <span class="fl">4.8</span>         <span class="fl">3.4</span>          <span class="fl">1.6</span>         <span class="fl">0.2</span>     setosa</a>
+<a class="sourceLine" id="cb3-15" title="15"><span class="dv">13</span>           <span class="fl">4.8</span>         <span class="fl">3.0</span>          <span class="fl">1.4</span>         <span class="fl">0.1</span>     setosa</a>
+<a class="sourceLine" id="cb3-16" title="16"><span class="dv">14</span>           <span class="fl">4.3</span>         <span class="fl">3.0</span>          <span class="fl">1.1</span>         <span class="fl">0.1</span>     setosa</a>
+<a class="sourceLine" id="cb3-17" title="17"><span class="dv">15</span>           <span class="fl">5.8</span>         <span class="fl">4.0</span>          <span class="fl">1.2</span>         <span class="fl">0.2</span>     setosa</a>
+<a class="sourceLine" id="cb3-18" title="18"><span class="dv">16</span>           <span class="fl">5.7</span>         <span class="fl">4.4</span>          <span class="fl">1.5</span>         <span class="fl">0.4</span>     setosa</a>
+<a class="sourceLine" id="cb3-19" title="19"><span class="dv">17</span>           <span class="fl">5.4</span>         <span class="fl">3.9</span>          <span class="fl">1.3</span>         <span class="fl">0.4</span>     setosa</a>
+<a class="sourceLine" id="cb3-20" title="20"><span class="dv">18</span>           <span class="fl">5.1</span>         <span class="fl">3.5</span>          <span class="fl">1.4</span>         <span class="fl">0.3</span>     setosa</a>
+<a class="sourceLine" id="cb3-21" title="21"><span class="dv">19</span>           <span class="fl">5.7</span>         <span class="fl">3.8</span>          <span class="fl">1.7</span>         <span class="fl">0.3</span>     setosa</a>
+<a class="sourceLine" id="cb3-22" title="22"><span class="dv">20</span>           <span class="fl">5.1</span>         <span class="fl">3.8</span>          <span class="fl">1.5</span>         <span class="fl">0.3</span>     setosa</a>
+<a class="sourceLine" id="cb3-23" title="23"><span class="dv">21</span>           <span class="fl">5.4</span>         <span class="fl">3.4</span>          <span class="fl">1.7</span>         <span class="fl">0.2</span>     setosa</a>
+<a class="sourceLine" id="cb3-24" title="24"><span class="dv">22</span>           <span class="fl">5.1</span>         <span class="fl">3.7</span>          <span class="fl">1.5</span>         <span class="fl">0.4</span>     setosa</a>
+<a class="sourceLine" id="cb3-25" title="25"><span class="dv">23</span>           <span class="fl">4.6</span>         <span class="fl">3.6</span>          <span class="fl">1.0</span>         <span class="fl">0.2</span>     setosa</a>
+<a class="sourceLine" id="cb3-26" title="26"><span class="dv">24</span>           <span class="fl">5.1</span>         <span class="fl">3.3</span>          <span class="fl">1.7</span>         <span class="fl">0.5</span>     setosa</a>
+<a class="sourceLine" id="cb3-27" title="27"><span class="dv">25</span>           <span class="fl">4.8</span>         <span class="fl">3.4</span>          <span class="fl">1.9</span>         <span class="fl">0.2</span>     setosa</a>
+<a class="sourceLine" id="cb3-28" title="28"><span class="dv">26</span>           <span class="fl">5.0</span>         <span class="fl">3.0</span>          <span class="fl">1.6</span>         <span class="fl">0.2</span>     setosa</a>
+<a class="sourceLine" id="cb3-29" title="29"><span class="dv">27</span>           <span class="fl">5.0</span>         <span class="fl">3.4</span>          <span class="fl">1.6</span>         <span class="fl">0.4</span>     setosa</a>
+<a class="sourceLine" id="cb3-30" title="30"><span class="dv">28</span>           <span class="fl">5.2</span>         <span class="fl">3.5</span>          <span class="fl">1.5</span>         <span class="fl">0.2</span>     setosa</a>
+<a class="sourceLine" id="cb3-31" title="31"><span class="dv">29</span>           <span class="fl">5.2</span>         <span class="fl">3.4</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span>     setosa</a>
+<a class="sourceLine" id="cb3-32" title="32"><span class="dv">30</span>           <span class="fl">4.7</span>         <span class="fl">3.2</span>          <span class="fl">1.6</span>         <span class="fl">0.2</span>     setosa</a>
+<a class="sourceLine" id="cb3-33" title="33"><span class="dv">31</span>           <span class="fl">4.8</span>         <span class="fl">3.1</span>          <span class="fl">1.6</span>         <span class="fl">0.2</span>     setosa</a>
+<a class="sourceLine" id="cb3-34" title="34"><span class="dv">32</span>           <span class="fl">5.4</span>         <span class="fl">3.4</span>          <span class="fl">1.5</span>         <span class="fl">0.4</span>     setosa</a>
+<a class="sourceLine" id="cb3-35" title="35"><span class="dv">33</span>           <span class="fl">5.2</span>         <span class="fl">4.1</span>          <span class="fl">1.5</span>         <span class="fl">0.1</span>     setosa</a>
+<a class="sourceLine" id="cb3-36" title="36"><span class="dv">34</span>           <span class="fl">5.5</span>         <span class="fl">4.2</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span>     setosa</a>
+<a class="sourceLine" id="cb3-37" title="37"><span class="dv">35</span>           <span class="fl">4.9</span>         <span class="fl">3.1</span>          <span class="fl">1.5</span>         <span class="fl">0.2</span>     setosa</a>
+<a class="sourceLine" id="cb3-38" title="38"><span class="dv">36</span>           <span class="fl">5.0</span>         <span class="fl">3.2</span>          <span class="fl">1.2</span>         <span class="fl">0.2</span>     setosa</a>
+<a class="sourceLine" id="cb3-39" title="39"><span class="dv">37</span>           <span class="fl">5.5</span>         <span class="fl">3.5</span>          <span class="fl">1.3</span>         <span class="fl">0.2</span>     setosa</a>
+<a class="sourceLine" id="cb3-40" title="40"><span class="dv">38</span>           <span class="fl">4.9</span>         <span class="fl">3.6</span>          <span class="fl">1.4</span>         <span class="fl">0.1</span>     setosa</a>
+<a class="sourceLine" id="cb3-41" title="41"><span class="dv">39</span>           <span class="fl">4.4</span>         <span class="fl">3.0</span>          <span class="fl">1.3</span>         <span class="fl">0.2</span>     setosa</a>
+<a class="sourceLine" id="cb3-42" title="42"><span class="dv">40</span>           <span class="fl">5.1</span>         <span class="fl">3.4</span>          <span class="fl">1.5</span>         <span class="fl">0.2</span>     setosa</a>
+<a class="sourceLine" id="cb3-43" title="43"><span class="dv">41</span>           <span class="fl">5.0</span>         <span class="fl">3.5</span>          <span class="fl">1.3</span>         <span class="fl">0.3</span>     setosa</a>
+<a class="sourceLine" id="cb3-44" title="44"><span class="dv">42</span>           <span class="fl">4.5</span>         <span class="fl">2.3</span>          <span class="fl">1.3</span>         <span class="fl">0.3</span>     setosa</a>
+<a class="sourceLine" id="cb3-45" title="45"><span class="dv">43</span>           <span class="fl">4.4</span>         <span class="fl">3.2</span>          <span class="fl">1.3</span>         <span class="fl">0.2</span>     setosa</a>
+<a class="sourceLine" id="cb3-46" title="46"><span class="dv">44</span>           <span class="fl">5.0</span>         <span class="fl">3.5</span>          <span class="fl">1.6</span>         <span class="fl">0.6</span>     setosa</a>
+<a class="sourceLine" id="cb3-47" title="47"><span class="dv">45</span>           <span class="fl">5.1</span>         <span class="fl">3.8</span>          <span class="fl">1.9</span>         <span class="fl">0.4</span>     setosa</a>
+<a class="sourceLine" id="cb3-48" title="48"><span class="dv">46</span>           <span class="fl">4.8</span>         <span class="fl">3.0</span>          <span class="fl">1.4</span>         <span class="fl">0.3</span>     setosa</a>
+<a class="sourceLine" id="cb3-49" title="49"><span class="dv">47</span>           <span class="fl">5.1</span>         <span class="fl">3.8</span>          <span class="fl">1.6</span>         <span class="fl">0.2</span>     setosa</a>
+<a class="sourceLine" id="cb3-50" title="50"><span class="dv">48</span>           <span class="fl">4.6</span>         <span class="fl">3.2</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span>     setosa</a>
+<a class="sourceLine" id="cb3-51" title="51"><span class="dv">49</span>           <span class="fl">5.3</span>         <span class="fl">3.7</span>          <span class="fl">1.5</span>         <span class="fl">0.2</span>     setosa</a>
+<a class="sourceLine" id="cb3-52" title="52"><span class="dv">50</span>           <span class="fl">5.0</span>         <span class="fl">3.3</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span>     setosa</a>
+<a class="sourceLine" id="cb3-53" title="53"><span class="dv">51</span>           <span class="fl">7.0</span>         <span class="fl">3.2</span>          <span class="fl">4.7</span>         <span class="fl">1.4</span> versicolor</a>
+<a class="sourceLine" id="cb3-54" title="54"><span class="dv">52</span>           <span class="fl">6.4</span>         <span class="fl">3.2</span>          <span class="fl">4.5</span>         <span class="fl">1.5</span> versicolor</a>
+<a class="sourceLine" id="cb3-55" title="55"><span class="dv">53</span>           <span class="fl">6.9</span>         <span class="fl">3.1</span>          <span class="fl">4.9</span>         <span class="fl">1.5</span> versicolor</a>
+<a class="sourceLine" id="cb3-56" title="56"><span class="dv">54</span>           <span class="fl">5.5</span>         <span class="fl">2.3</span>          <span class="fl">4.0</span>         <span class="fl">1.3</span> versicolor</a>
+<a class="sourceLine" id="cb3-57" title="57"><span class="dv">55</span>           <span class="fl">6.5</span>         <span class="fl">2.8</span>          <span class="fl">4.6</span>         <span class="fl">1.5</span> versicolor</a>
+<a class="sourceLine" id="cb3-58" title="58"><span class="dv">56</span>           <span class="fl">5.7</span>         <span class="fl">2.8</span>          <span class="fl">4.5</span>         <span class="fl">1.3</span> versicolor</a>
+<a class="sourceLine" id="cb3-59" title="59"><span class="dv">57</span>           <span class="fl">6.3</span>         <span class="fl">3.3</span>          <span class="fl">4.7</span>         <span class="fl">1.6</span> versicolor</a>
+<a class="sourceLine" id="cb3-60" title="60"><span class="dv">58</span>           <span class="fl">4.9</span>         <span class="fl">2.4</span>          <span class="fl">3.3</span>         <span class="fl">1.0</span> versicolor</a>
+<a class="sourceLine" id="cb3-61" title="61"><span class="dv">59</span>           <span class="fl">6.6</span>         <span class="fl">2.9</span>          <span class="fl">4.6</span>         <span class="fl">1.3</span> versicolor</a>
+<a class="sourceLine" id="cb3-62" title="62"><span class="dv">60</span>           <span class="fl">5.2</span>         <span class="fl">2.7</span>          <span class="fl">3.9</span>         <span class="fl">1.4</span> versicolor</a>
+<a class="sourceLine" id="cb3-63" title="63"><span class="dv">61</span>           <span class="fl">5.0</span>         <span class="fl">2.0</span>          <span class="fl">3.5</span>         <span class="fl">1.0</span> versicolor</a>
+<a class="sourceLine" id="cb3-64" title="64"><span class="dv">62</span>           <span class="fl">5.9</span>         <span class="fl">3.0</span>          <span class="fl">4.2</span>         <span class="fl">1.5</span> versicolor</a>
+<a class="sourceLine" id="cb3-65" title="65"><span class="dv">63</span>           <span class="fl">6.0</span>         <span class="fl">2.2</span>          <span class="fl">4.0</span>         <span class="fl">1.0</span> versicolor</a>
+<a class="sourceLine" id="cb3-66" title="66"><span class="dv">64</span>           <span class="fl">6.1</span>         <span class="fl">2.9</span>          <span class="fl">4.7</span>         <span class="fl">1.4</span> versicolor</a>
+<a class="sourceLine" id="cb3-67" title="67"><span class="dv">65</span>           <span class="fl">5.6</span>         <span class="fl">2.9</span>          <span class="fl">3.6</span>         <span class="fl">1.3</span> versicolor</a>
+<a class="sourceLine" id="cb3-68" title="68"><span class="dv">66</span>           <span class="fl">6.7</span>         <span class="fl">3.1</span>          <span class="fl">4.4</span>         <span class="fl">1.4</span> versicolor</a>
+<a class="sourceLine" id="cb3-69" title="69"><span class="dv">67</span>           <span class="fl">5.6</span>         <span class="fl">3.0</span>          <span class="fl">4.5</span>         <span class="fl">1.5</span> versicolor</a>
+<a class="sourceLine" id="cb3-70" title="70"><span class="dv">68</span>           <span class="fl">5.8</span>         <span class="fl">2.7</span>          <span class="fl">4.1</span>         <span class="fl">1.0</span> versicolor</a>
+<a class="sourceLine" id="cb3-71" title="71"><span class="dv">69</span>           <span class="fl">6.2</span>         <span class="fl">2.2</span>          <span class="fl">4.5</span>         <span class="fl">1.5</span> versicolor</a>
+<a class="sourceLine" id="cb3-72" title="72"><span class="dv">70</span>           <span class="fl">5.6</span>         <span class="fl">2.5</span>          <span class="fl">3.9</span>         <span class="fl">1.1</span> versicolor</a>
+<a class="sourceLine" id="cb3-73" title="73"><span class="dv">71</span>           <span class="fl">5.9</span>         <span class="fl">3.2</span>          <span class="fl">4.8</span>         <span class="fl">1.8</span> versicolor</a>
+<a class="sourceLine" id="cb3-74" title="74"><span class="dv">72</span>           <span class="fl">6.1</span>         <span class="fl">2.8</span>          <span class="fl">4.0</span>         <span class="fl">1.3</span> versicolor</a>
+<a class="sourceLine" id="cb3-75" title="75"><span class="dv">73</span>           <span class="fl">6.3</span>         <span class="fl">2.5</span>          <span class="fl">4.9</span>         <span class="fl">1.5</span> versicolor</a>
+<a class="sourceLine" id="cb3-76" title="76"><span class="dv">74</span>           <span class="fl">6.1</span>         <span class="fl">2.8</span>          <span class="fl">4.7</span>         <span class="fl">1.2</span> versicolor</a>
+<a class="sourceLine" id="cb3-77" title="77"><span class="dv">75</span>           <span class="fl">6.4</span>         <span class="fl">2.9</span>          <span class="fl">4.3</span>         <span class="fl">1.3</span> versicolor</a>
+<a class="sourceLine" id="cb3-78" title="78"><span class="dv">76</span>           <span class="fl">6.6</span>         <span class="fl">3.0</span>          <span class="fl">4.4</span>         <span class="fl">1.4</span> versicolor</a>
+<a class="sourceLine" id="cb3-79" title="79"><span class="dv">77</span>           <span class="fl">6.8</span>         <span class="fl">2.8</span>          <span class="fl">4.8</span>         <span class="fl">1.4</span> versicolor</a>
+<a class="sourceLine" id="cb3-80" title="80"><span class="dv">78</span>           <span class="fl">6.7</span>         <span class="fl">3.0</span>          <span class="fl">5.0</span>         <span class="fl">1.7</span> versicolor</a>
+<a class="sourceLine" id="cb3-81" title="81"><span class="dv">79</span>           <span class="fl">6.0</span>         <span class="fl">2.9</span>          <span class="fl">4.5</span>         <span class="fl">1.5</span> versicolor</a>
+<a class="sourceLine" id="cb3-82" title="82"><span class="dv">80</span>           <span class="fl">5.7</span>         <span class="fl">2.6</span>          <span class="fl">3.5</span>         <span class="fl">1.0</span> versicolor</a>
+<a class="sourceLine" id="cb3-83" title="83"><span class="dv">81</span>           <span class="fl">5.5</span>         <span class="fl">2.4</span>          <span class="fl">3.8</span>         <span class="fl">1.1</span> versicolor</a>
+<a class="sourceLine" id="cb3-84" title="84"><span class="dv">82</span>           <span class="fl">5.5</span>         <span class="fl">2.4</span>          <span class="fl">3.7</span>         <span class="fl">1.0</span> versicolor</a>
+<a class="sourceLine" id="cb3-85" title="85"><span class="dv">83</span>           <span class="fl">5.8</span>         <span class="fl">2.7</span>          <span class="fl">3.9</span>         <span class="fl">1.2</span> versicolor</a>
+<a class="sourceLine" id="cb3-86" title="86"><span class="dv">84</span>           <span class="fl">6.0</span>         <span class="fl">2.7</span>          <span class="fl">5.1</span>         <span class="fl">1.6</span> versicolor</a>
+<a class="sourceLine" id="cb3-87" title="87"><span class="dv">85</span>           <span class="fl">5.4</span>         <span class="fl">3.0</span>          <span class="fl">4.5</span>         <span class="fl">1.5</span> versicolor</a>
+<a class="sourceLine" id="cb3-88" title="88"><span class="dv">86</span>           <span class="fl">6.0</span>         <span class="fl">3.4</span>          <span class="fl">4.5</span>         <span class="fl">1.6</span> versicolor</a>
+<a class="sourceLine" id="cb3-89" title="89"><span class="dv">87</span>           <span class="fl">6.7</span>         <span class="fl">3.1</span>          <span class="fl">4.7</span>         <span class="fl">1.5</span> versicolor</a>
+<a class="sourceLine" id="cb3-90" title="90"><span class="dv">88</span>           <span class="fl">6.3</span>         <span class="fl">2.3</span>          <span class="fl">4.4</span>         <span class="fl">1.3</span> versicolor</a>
+<a class="sourceLine" id="cb3-91" title="91"><span class="dv">89</span>           <span class="fl">5.6</span>         <span class="fl">3.0</span>          <span class="fl">4.1</span>         <span class="fl">1.3</span> versicolor</a>
+<a class="sourceLine" id="cb3-92" title="92"><span class="dv">90</span>           <span class="fl">5.5</span>         <span class="fl">2.5</span>          <span class="fl">4.0</span>         <span class="fl">1.3</span> versicolor</a>
+<a class="sourceLine" id="cb3-93" title="93"><span class="dv">91</span>           <span class="fl">5.5</span>         <span class="fl">2.6</span>          <span class="fl">4.4</span>         <span class="fl">1.2</span> versicolor</a>
+<a class="sourceLine" id="cb3-94" title="94"><span class="dv">92</span>           <span class="fl">6.1</span>         <span class="fl">3.0</span>          <span class="fl">4.6</span>         <span class="fl">1.4</span> versicolor</a>
+<a class="sourceLine" id="cb3-95" title="95"><span class="dv">93</span>           <span class="fl">5.8</span>         <span class="fl">2.6</span>          <span class="fl">4.0</span>         <span class="fl">1.2</span> versicolor</a>
+<a class="sourceLine" id="cb3-96" title="96"><span class="dv">94</span>           <span class="fl">5.0</span>         <span class="fl">2.3</span>          <span class="fl">3.3</span>         <span class="fl">1.0</span> versicolor</a>
+<a class="sourceLine" id="cb3-97" title="97"><span class="dv">95</span>           <span class="fl">5.6</span>         <span class="fl">2.7</span>          <span class="fl">4.2</span>         <span class="fl">1.3</span> versicolor</a>
+<a class="sourceLine" id="cb3-98" title="98"><span class="dv">96</span>           <span class="fl">5.7</span>         <span class="fl">3.0</span>          <span class="fl">4.2</span>         <span class="fl">1.2</span> versicolor</a>
+<a class="sourceLine" id="cb3-99" title="99"><span class="dv">97</span>           <span class="fl">5.7</span>         <span class="fl">2.9</span>          <span class="fl">4.2</span>         <span class="fl">1.3</span> versicolor</a>
+<a class="sourceLine" id="cb3-100" title="100"><span class="dv">98</span>           <span class="fl">6.2</span>         <span class="fl">2.9</span>          <span class="fl">4.3</span>         <span class="fl">1.3</span> versicolor</a>
+<a class="sourceLine" id="cb3-101" title="101"><span class="dv">99</span>           <span class="fl">5.1</span>         <span class="fl">2.5</span>          <span class="fl">3.0</span>         <span class="fl">1.1</span> versicolor</a>
+<a class="sourceLine" id="cb3-102" title="102"><span class="dv">100</span>          <span class="fl">5.7</span>         <span class="fl">2.8</span>          <span class="fl">4.1</span>         <span class="fl">1.3</span> versicolor</a>
+<a class="sourceLine" id="cb3-103" title="103"><span class="dv">101</span>          <span class="fl">6.3</span>         <span class="fl">3.3</span>          <span class="fl">6.0</span>         <span class="fl">2.5</span>  virginica</a>
+<a class="sourceLine" id="cb3-104" title="104"><span class="dv">102</span>          <span class="fl">5.8</span>         <span class="fl">2.7</span>          <span class="fl">5.1</span>         <span class="fl">1.9</span>  virginica</a>
+<a class="sourceLine" id="cb3-105" title="105"><span class="dv">103</span>          <span class="fl">7.1</span>         <span class="fl">3.0</span>          <span class="fl">5.9</span>         <span class="fl">2.1</span>  virginica</a>
+<a class="sourceLine" id="cb3-106" title="106"><span class="dv">104</span>          <span class="fl">6.3</span>         <span class="fl">2.9</span>          <span class="fl">5.6</span>         <span class="fl">1.8</span>  virginica</a>
+<a class="sourceLine" id="cb3-107" title="107"><span class="dv">105</span>          <span class="fl">6.5</span>         <span class="fl">3.0</span>          <span class="fl">5.8</span>         <span class="fl">2.2</span>  virginica</a>
+<a class="sourceLine" id="cb3-108" title="108"><span class="dv">106</span>          <span class="fl">7.6</span>         <span class="fl">3.0</span>          <span class="fl">6.6</span>         <span class="fl">2.1</span>  virginica</a>
+<a class="sourceLine" id="cb3-109" title="109"><span class="dv">107</span>          <span class="fl">4.9</span>         <span class="fl">2.5</span>          <span class="fl">4.5</span>         <span class="fl">1.7</span>  virginica</a>
+<a class="sourceLine" id="cb3-110" title="110"><span class="dv">108</span>          <span class="fl">7.3</span>         <span class="fl">2.9</span>          <span class="fl">6.3</span>         <span class="fl">1.8</span>  virginica</a>
+<a class="sourceLine" id="cb3-111" title="111"><span class="dv">109</span>          <span class="fl">6.7</span>         <span class="fl">2.5</span>          <span class="fl">5.8</span>         <span class="fl">1.8</span>  virginica</a>
+<a class="sourceLine" id="cb3-112" title="112"><span class="dv">110</span>          <span class="fl">7.2</span>         <span class="fl">3.6</span>          <span class="fl">6.1</span>         <span class="fl">2.5</span>  virginica</a>
+<a class="sourceLine" id="cb3-113" title="113"><span class="dv">111</span>          <span class="fl">6.5</span>         <span class="fl">3.2</span>          <span class="fl">5.1</span>         <span class="fl">2.0</span>  virginica</a>
+<a class="sourceLine" id="cb3-114" title="114"><span class="dv">112</span>          <span class="fl">6.4</span>         <span class="fl">2.7</span>          <span class="fl">5.3</span>         <span class="fl">1.9</span>  virginica</a>
+<a class="sourceLine" id="cb3-115" title="115"><span class="dv">113</span>          <span class="fl">6.8</span>         <span class="fl">3.0</span>          <span class="fl">5.5</span>         <span class="fl">2.1</span>  virginica</a>
+<a class="sourceLine" id="cb3-116" title="116"><span class="dv">114</span>          <span class="fl">5.7</span>         <span class="fl">2.5</span>          <span class="fl">5.0</span>         <span class="fl">2.0</span>  virginica</a>
+<a class="sourceLine" id="cb3-117" title="117"><span class="dv">115</span>          <span class="fl">5.8</span>         <span class="fl">2.8</span>          <span class="fl">5.1</span>         <span class="fl">2.4</span>  virginica</a>
+<a class="sourceLine" id="cb3-118" title="118"><span class="dv">116</span>          <span class="fl">6.4</span>         <span class="fl">3.2</span>          <span class="fl">5.3</span>         <span class="fl">2.3</span>  virginica</a>
+<a class="sourceLine" id="cb3-119" title="119"><span class="dv">117</span>          <span class="fl">6.5</span>         <span class="fl">3.0</span>          <span class="fl">5.5</span>         <span class="fl">1.8</span>  virginica</a>
+<a class="sourceLine" id="cb3-120" title="120"><span class="dv">118</span>          <span class="fl">7.7</span>         <span class="fl">3.8</span>          <span class="fl">6.7</span>         <span class="fl">2.2</span>  virginica</a>
+<a class="sourceLine" id="cb3-121" title="121"><span class="dv">119</span>          <span class="fl">7.7</span>         <span class="fl">2.6</span>          <span class="fl">6.9</span>         <span class="fl">2.3</span>  virginica</a>
+<a class="sourceLine" id="cb3-122" title="122"><span class="dv">120</span>          <span class="fl">6.0</span>         <span class="fl">2.2</span>          <span class="fl">5.0</span>         <span class="fl">1.5</span>  virginica</a>
+<a class="sourceLine" id="cb3-123" title="123"><span class="dv">121</span>          <span class="fl">6.9</span>         <span class="fl">3.2</span>          <span class="fl">5.7</span>         <span class="fl">2.3</span>  virginica</a>
+<a class="sourceLine" id="cb3-124" title="124"><span class="dv">122</span>          <span class="fl">5.6</span>         <span class="fl">2.8</span>          <span class="fl">4.9</span>         <span class="fl">2.0</span>  virginica</a>
+<a class="sourceLine" id="cb3-125" title="125"><span class="dv">123</span>          <span class="fl">7.7</span>         <span class="fl">2.8</span>          <span class="fl">6.7</span>         <span class="fl">2.0</span>  virginica</a>
+<a class="sourceLine" id="cb3-126" title="126"><span class="dv">124</span>          <span class="fl">6.3</span>         <span class="fl">2.7</span>          <span class="fl">4.9</span>         <span class="fl">1.8</span>  virginica</a>
+<a class="sourceLine" id="cb3-127" title="127"><span class="dv">125</span>          <span class="fl">6.7</span>         <span class="fl">3.3</span>          <span class="fl">5.7</span>         <span class="fl">2.1</span>  virginica</a>
+<a class="sourceLine" id="cb3-128" title="128"><span class="dv">126</span>          <span class="fl">7.2</span>         <span class="fl">3.2</span>          <span class="fl">6.0</span>         <span class="fl">1.8</span>  virginica</a>
+<a class="sourceLine" id="cb3-129" title="129"><span class="dv">127</span>          <span class="fl">6.2</span>         <span class="fl">2.8</span>          <span class="fl">4.8</span>         <span class="fl">1.8</span>  virginica</a>
+<a class="sourceLine" id="cb3-130" title="130"><span class="dv">128</span>          <span class="fl">6.1</span>         <span class="fl">3.0</span>          <span class="fl">4.9</span>         <span class="fl">1.8</span>  virginica</a>
+<a class="sourceLine" id="cb3-131" title="131"><span class="dv">129</span>          <span class="fl">6.4</span>         <span class="fl">2.8</span>          <span class="fl">5.6</span>         <span class="fl">2.1</span>  virginica</a>
+<a class="sourceLine" id="cb3-132" title="132"><span class="dv">130</span>          <span class="fl">7.2</span>         <span class="fl">3.0</span>          <span class="fl">5.8</span>         <span class="fl">1.6</span>  virginica</a>
+<a class="sourceLine" id="cb3-133" title="133"><span class="dv">131</span>          <span class="fl">7.4</span>         <span class="fl">2.8</span>          <span class="fl">6.1</span>         <span class="fl">1.9</span>  virginica</a>
+<a class="sourceLine" id="cb3-134" title="134"><span class="dv">132</span>          <span class="fl">7.9</span>         <span class="fl">3.8</span>          <span class="fl">6.4</span>         <span class="fl">2.0</span>  virginica</a>
+<a class="sourceLine" id="cb3-135" title="135"><span class="dv">133</span>          <span class="fl">6.4</span>         <span class="fl">2.8</span>          <span class="fl">5.6</span>         <span class="fl">2.2</span>  virginica</a>
+<a class="sourceLine" id="cb3-136" title="136"><span class="dv">134</span>          <span class="fl">6.3</span>         <span class="fl">2.8</span>          <span class="fl">5.1</span>         <span class="fl">1.5</span>  virginica</a>
+<a class="sourceLine" id="cb3-137" title="137"><span class="dv">135</span>          <span class="fl">6.1</span>         <span class="fl">2.6</span>          <span class="fl">5.6</span>         <span class="fl">1.4</span>  virginica</a>
+<a class="sourceLine" id="cb3-138" title="138"><span class="dv">136</span>          <span class="fl">7.7</span>         <span class="fl">3.0</span>          <span class="fl">6.1</span>         <span class="fl">2.3</span>  virginica</a>
+<a class="sourceLine" id="cb3-139" title="139"><span class="dv">137</span>          <span class="fl">6.3</span>         <span class="fl">3.4</span>          <span class="fl">5.6</span>         <span class="fl">2.4</span>  virginica</a>
+<a class="sourceLine" id="cb3-140" title="140"><span class="dv">138</span>          <span class="fl">6.4</span>         <span class="fl">3.1</span>          <span class="fl">5.5</span>         <span class="fl">1.8</span>  virginica</a>
+<a class="sourceLine" id="cb3-141" title="141"><span class="dv">139</span>          <span class="fl">6.0</span>         <span class="fl">3.0</span>          <span class="fl">4.8</span>         <span class="fl">1.8</span>  virginica</a>
+<a class="sourceLine" id="cb3-142" title="142"><span class="dv">140</span>          <span class="fl">6.9</span>         <span class="fl">3.1</span>          <span class="fl">5.4</span>         <span class="fl">2.1</span>  virginica</a>
+<a class="sourceLine" id="cb3-143" title="143"><span class="dv">141</span>          <span class="fl">6.7</span>         <span class="fl">3.1</span>          <span class="fl">5.6</span>         <span class="fl">2.4</span>  virginica</a>
+<a class="sourceLine" id="cb3-144" title="144"><span class="dv">142</span>          <span class="fl">6.9</span>         <span class="fl">3.1</span>          <span class="fl">5.1</span>         <span class="fl">2.3</span>  virginica</a>
+<a class="sourceLine" id="cb3-145" title="145"><span class="dv">143</span>          <span class="fl">5.8</span>         <span class="fl">2.7</span>          <span class="fl">5.1</span>         <span class="fl">1.9</span>  virginica</a>
+<a class="sourceLine" id="cb3-146" title="146"><span class="dv">144</span>          <span class="fl">6.8</span>         <span class="fl">3.2</span>          <span class="fl">5.9</span>         <span class="fl">2.3</span>  virginica</a>
+<a class="sourceLine" id="cb3-147" title="147"><span class="dv">145</span>          <span class="fl">6.7</span>         <span class="fl">3.3</span>          <span class="fl">5.7</span>         <span class="fl">2.5</span>  virginica</a>
+<a class="sourceLine" id="cb3-148" title="148"><span class="dv">146</span>          <span class="fl">6.7</span>         <span class="fl">3.0</span>          <span class="fl">5.2</span>         <span class="fl">2.3</span>  virginica</a>
+<a class="sourceLine" id="cb3-149" title="149"><span class="dv">147</span>          <span class="fl">6.3</span>         <span class="fl">2.5</span>          <span class="fl">5.0</span>         <span class="fl">1.9</span>  virginica</a>
+<a class="sourceLine" id="cb3-150" title="150"><span class="dv">148</span>          <span class="fl">6.5</span>         <span class="fl">3.0</span>          <span class="fl">5.2</span>         <span class="fl">2.0</span>  virginica</a>
+<a class="sourceLine" id="cb3-151" title="151"><span class="dv">149</span>          <span class="fl">6.2</span>         <span class="fl">3.4</span>          <span class="fl">5.4</span>         <span class="fl">2.3</span>  virginica</a>
+<a class="sourceLine" id="cb3-152" title="152"><span class="dv">150</span>          <span class="fl">5.9</span>         <span class="fl">3.0</span>          <span class="fl">5.1</span>         <span class="fl">1.8</span>  virginica</a></code></pre></div>
+</details>
+<p><br></p>
+</div>
+<div id="tibble" class="section level3">
+<h3>tibble</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"> iris<span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="st">  </span>tibble<span class="op">::</span><span class="kw">as_tibble</span>()<span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="st">  </span>details<span class="op">::</span><span class="kw">details</span>(<span class="dt">summary =</span> <span class="st">&#39;tibble&#39;</span>)</a></code></pre></div>
+<details closed>
+<p><summary> <span title="Click to Expand"> tibble </span> </summary></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="co"># A tibble: 150 x 5</span></a>
+<a class="sourceLine" id="cb5-3" title="3">   Sepal.Length Sepal.Width Petal.Length Petal.Width Species</a>
+<a class="sourceLine" id="cb5-4" title="4">          <span class="op">&lt;</span>dbl<span class="op">&gt;</span><span class="st">       </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st">        </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st">       </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>fct<span class="op">&gt;</span><span class="st">  </span></a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="st"> </span><span class="dv">1</span>          <span class="fl">5.1</span>         <span class="fl">3.5</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span> setosa </a>
+<a class="sourceLine" id="cb5-6" title="6"> <span class="dv">2</span>          <span class="fl">4.9</span>         <span class="dv">3</span>            <span class="fl">1.4</span>         <span class="fl">0.2</span> setosa </a>
+<a class="sourceLine" id="cb5-7" title="7"> <span class="dv">3</span>          <span class="fl">4.7</span>         <span class="fl">3.2</span>          <span class="fl">1.3</span>         <span class="fl">0.2</span> setosa </a>
+<a class="sourceLine" id="cb5-8" title="8"> <span class="dv">4</span>          <span class="fl">4.6</span>         <span class="fl">3.1</span>          <span class="fl">1.5</span>         <span class="fl">0.2</span> setosa </a>
+<a class="sourceLine" id="cb5-9" title="9"> <span class="dv">5</span>          <span class="dv">5</span>           <span class="fl">3.6</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span> setosa </a>
+<a class="sourceLine" id="cb5-10" title="10"> <span class="dv">6</span>          <span class="fl">5.4</span>         <span class="fl">3.9</span>          <span class="fl">1.7</span>         <span class="fl">0.4</span> setosa </a>
+<a class="sourceLine" id="cb5-11" title="11"> <span class="dv">7</span>          <span class="fl">4.6</span>         <span class="fl">3.4</span>          <span class="fl">1.4</span>         <span class="fl">0.3</span> setosa </a>
+<a class="sourceLine" id="cb5-12" title="12"> <span class="dv">8</span>          <span class="dv">5</span>           <span class="fl">3.4</span>          <span class="fl">1.5</span>         <span class="fl">0.2</span> setosa </a>
+<a class="sourceLine" id="cb5-13" title="13"> <span class="dv">9</span>          <span class="fl">4.4</span>         <span class="fl">2.9</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span> setosa </a>
+<a class="sourceLine" id="cb5-14" title="14"><span class="dv">10</span>          <span class="fl">4.9</span>         <span class="fl">3.1</span>          <span class="fl">1.5</span>         <span class="fl">0.1</span> setosa </a>
+<a class="sourceLine" id="cb5-15" title="15"><span class="co"># … with 140 more rows</span></a></code></pre></div>
+</details>
+<p><br></p>
+</div>
+<div id="list" class="section level2">
+<h2>list</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"> <span class="kw">list</span>(<span class="dt">a =</span> <span class="dv">1</span>,<span class="dt">b =</span> <span class="kw">head</span>(iris))<span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="st">  </span>details<span class="op">::</span><span class="kw">details</span>(<span class="dt">summary =</span> <span class="st">&#39;list&#39;</span>)</a></code></pre></div>
+<details closed>
+<p><summary> <span title="Click to Expand"> list </span> </summary></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="op">$</span>a</a>
+<a class="sourceLine" id="cb7-3" title="3">[<span class="dv">1</span>] <span class="dv">1</span></a>
+<a class="sourceLine" id="cb7-4" title="4"></a>
+<a class="sourceLine" id="cb7-5" title="5"><span class="op">$</span>b</a>
+<a class="sourceLine" id="cb7-6" title="6">  Sepal.Length Sepal.Width Petal.Length Petal.Width Species</a>
+<a class="sourceLine" id="cb7-7" title="7"><span class="dv">1</span>          <span class="fl">5.1</span>         <span class="fl">3.5</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span>  setosa</a>
+<a class="sourceLine" id="cb7-8" title="8"><span class="dv">2</span>          <span class="fl">4.9</span>         <span class="fl">3.0</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span>  setosa</a>
+<a class="sourceLine" id="cb7-9" title="9"><span class="dv">3</span>          <span class="fl">4.7</span>         <span class="fl">3.2</span>          <span class="fl">1.3</span>         <span class="fl">0.2</span>  setosa</a>
+<a class="sourceLine" id="cb7-10" title="10"><span class="dv">4</span>          <span class="fl">4.6</span>         <span class="fl">3.1</span>          <span class="fl">1.5</span>         <span class="fl">0.2</span>  setosa</a>
+<a class="sourceLine" id="cb7-11" title="11"><span class="dv">5</span>          <span class="fl">5.0</span>         <span class="fl">3.6</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span>  setosa</a>
+<a class="sourceLine" id="cb7-12" title="12"><span class="dv">6</span>          <span class="fl">5.4</span>         <span class="fl">3.9</span>          <span class="fl">1.7</span>         <span class="fl">0.4</span>  setosa</a></code></pre></div>
+</details>
+<p><br></p>
+</div>
+<div id="plots" class="section level2">
+<h2>plots</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="kw">details</span>(</a>
+<a class="sourceLine" id="cb8-3" title="3">  <span class="kw">plot</span>(<span class="dt">x=</span>mtcars<span class="op">$</span>mpg,<span class="dt">y=</span>mtcars<span class="op">$</span>wt),</a>
+<a class="sourceLine" id="cb8-4" title="4">  <span class="dt">summary =</span> <span class="st">&#39;plots&#39;</span>)</a></code></pre></div>
+<details closed>
+<p><summary> <span title="Click to Expand"> plots </span> </summary></p>
+<p><img src="data:image/png;base64,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" /></p>
+</details>
+<p><br></p>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
