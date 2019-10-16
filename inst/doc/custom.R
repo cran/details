@@ -7,37 +7,37 @@ knitr::opts_chunk$set(
 ## ----setup---------------------------------------------------------------
 library(details)
 
-## ----results='asis'------------------------------------------------------
+## ------------------------------------------------------------------------
   R.version %>%
   details::details()
 
-## ----results='asis'------------------------------------------------------
+## ------------------------------------------------------------------------
 R.version.string %>%
   details::details(
     summary = 'R Version'
   )
 
-## ----results='asis'------------------------------------------------------
+## ------------------------------------------------------------------------
 R.version.string %>%
   details::details(
     summary = '<font color="red"> R Version </font>'
   )
 
-## ----results='asis'------------------------------------------------------
+## ------------------------------------------------------------------------
 R.version.string %>%
   details::details(
     summary = 'Open by default',
     open = TRUE
   )
 
-## ----results='asis'------------------------------------------------------
+## ------------------------------------------------------------------------
 R.version.string %>%
   details::details(
     summary = 'Use the current date as the tooltip',
     tooltip = Sys.Date()
   )
 
-## ----results='asis'------------------------------------------------------
+## ------------------------------------------------------------------------
 
 readLines(
   'https://raw.githubusercontent.com/metrumresearchgroup/covrpage/master/_pkgdown.yml'
@@ -46,4 +46,14 @@ readLines(
     summary = 'yaml example',
     lang = 'yml'
     )
+
+## ------------------------------------------------------------------------
+
+details::details(
+'<h1 style="color:blue;">This is a Blue Heading</h1><br>
+<p style="border: 1px solid powderblue;">There is a border around the text</p>',
+summary = 'Raw code example',
+lang = NULL
+)
+
 

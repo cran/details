@@ -311,6 +311,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <li><a href="#open">Controlling if it is opened or closed</a></li>
 <li><a href="#tooltip">Customizing the Tooltip</a></li>
 <li><a href="#language">Setting the highlight language</a></li>
+<li><a href="#raw">Toggling off the language</a></li>
 </ol>
 <div id="default" class="section level3">
 <h3>Default</h3>
@@ -381,7 +382,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <a class="sourceLine" id="cb10-4" title="4">    <span class="dt">tooltip =</span> <span class="kw">Sys.Date</span>()</a>
 <a class="sourceLine" id="cb10-5" title="5">  )</a></code></pre></div>
 <details closed>
-<p><summary> <span title="2019-10-07"> Use the current date as the tooltip </span> </summary></p>
+<p><summary> <span title="2019-10-16"> Use the current date as the tooltip </span> </summary></p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"></a>
 <a class="sourceLine" id="cb11-2" title="2">R version <span class="dv">3</span>.<span class="fl">6.1</span> (<span class="dv">2019-07-05</span>)</a></code></pre></div>
 </details>
@@ -406,49 +407,78 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <a class="sourceLine" id="cb13-4" title="4"><span class="fu">development:</span></a>
 <a class="sourceLine" id="cb13-5" title="5">  <span class="fu">mode:</span><span class="at"> auto</span></a>
 <a class="sourceLine" id="cb13-6" title="6"></a>
-<a class="sourceLine" id="cb13-7" title="7"><span class="fu">navbar:</span></a>
-<a class="sourceLine" id="cb13-8" title="8">  <span class="fu">structure:</span></a>
-<a class="sourceLine" id="cb13-9" title="9">    <span class="fu">left:</span><span class="at">  </span><span class="kw">[</span>home<span class="kw">,</span> reference<span class="kw">,</span> articleindex<span class="kw">,</span> news<span class="kw">]</span></a>
-<a class="sourceLine" id="cb13-10" title="10">    <span class="fu">right:</span><span class="at"> </span><span class="kw">[</span>github<span class="kw">,</span> twitter<span class="kw">]</span></a>
-<a class="sourceLine" id="cb13-11" title="11">  <span class="fu">components:</span></a>
-<a class="sourceLine" id="cb13-12" title="12">    <span class="fu">articles:</span><span class="at"> </span><span class="ch">~</span></a>
-<a class="sourceLine" id="cb13-13" title="13">    <span class="fu">articleindex:</span></a>
-<a class="sourceLine" id="cb13-14" title="14">      <span class="fu">text:</span><span class="at"> Articles</span></a>
-<a class="sourceLine" id="cb13-15" title="15">      <span class="fu">href:</span><span class="at"> articles/index.html</span></a>
-<a class="sourceLine" id="cb13-16" title="16">    <span class="fu">twitter:</span></a>
-<a class="sourceLine" id="cb13-17" title="17">      <span class="fu">icon:</span><span class="at"> fa-lg fa-twitter</span></a>
-<a class="sourceLine" id="cb13-18" title="18">      <span class="fu">href:</span><span class="at"> http://twitter.com/MetrumRG</span></a>
-<a class="sourceLine" id="cb13-19" title="19"></a>
-<a class="sourceLine" id="cb13-20" title="20"><span class="fu">hexURL:</span></a>
-<a class="sourceLine" id="cb13-21" title="21">  https://github.com/metrumresearchgroup/covrpage/blob/master/inst/logo/covrpageLogoSCREEN.png?raw=true</a>
-<a class="sourceLine" id="cb13-22" title="22"></a>
-<a class="sourceLine" id="cb13-23" title="23"><span class="fu">reference:</span></a>
-<a class="sourceLine" id="cb13-24" title="24">  <span class="kw">-</span> <span class="fu">title:</span><span class="at"> </span><span class="st">&quot;Setup&quot;</span></a>
-<a class="sourceLine" id="cb13-25" title="25">    <span class="fu">contents:</span></a>
-<a class="sourceLine" id="cb13-26" title="26">      <span class="kw">-</span> has_concept(<span class="st">&quot;setup&quot;</span>)</a>
-<a class="sourceLine" id="cb13-27" title="27">  <span class="kw">-</span> <span class="fu">title:</span><span class="at"> </span><span class="st">&quot;Invoking&quot;</span></a>
-<a class="sourceLine" id="cb13-28" title="28">    <span class="fu">contents:</span></a>
-<a class="sourceLine" id="cb13-29" title="29">      <span class="kw">-</span> has_concept(<span class="st">&quot;invoke&quot;</span>)</a>
-<a class="sourceLine" id="cb13-30" title="30">  <span class="kw">-</span> <span class="fu">title:</span><span class="at"> </span><span class="st">&quot;Covrpage Trends&quot;</span></a>
-<a class="sourceLine" id="cb13-31" title="31">    <span class="fu">contents:</span></a>
-<a class="sourceLine" id="cb13-32" title="32">      <span class="kw">-</span> has_concept(<span class="st">&quot;log&quot;</span>)</a>
-<a class="sourceLine" id="cb13-33" title="33">  <span class="kw">-</span> <span class="fu">title:</span><span class="at"> </span><span class="st">&quot;Covrpage Utilities&quot;</span></a>
-<a class="sourceLine" id="cb13-34" title="34">    <span class="fu">contents:</span></a>
-<a class="sourceLine" id="cb13-35" title="35">      <span class="kw">-</span> has_concept(<span class="st">&quot;utility&quot;</span>)</a>
-<a class="sourceLine" id="cb13-36" title="36"></a>
-<a class="sourceLine" id="cb13-37" title="37"><span class="fu">articles:</span></a>
-<a class="sourceLine" id="cb13-38" title="38">  <span class="kw">-</span> <span class="fu">title:</span><span class="at"> </span><span class="st">&quot;Basics&quot;</span></a>
+<a class="sourceLine" id="cb13-7" title="7"><span class="fu">template:</span></a>
+<a class="sourceLine" id="cb13-8" title="8">  <span class="fu">params:</span></a>
+<a class="sourceLine" id="cb13-9" title="9">    <span class="fu">bootswatch:</span><span class="at"> flatly</span></a>
+<a class="sourceLine" id="cb13-10" title="10"></a>
+<a class="sourceLine" id="cb13-11" title="11"><span class="fu">navbar:</span></a>
+<a class="sourceLine" id="cb13-12" title="12">  <span class="fu">type:</span><span class="at"> inverse</span></a>
+<a class="sourceLine" id="cb13-13" title="13">  <span class="fu">right:</span></a>
+<a class="sourceLine" id="cb13-14" title="14">    <span class="kw">-</span> <span class="fu">icon:</span><span class="at"> fa-github fa-lg</span></a>
+<a class="sourceLine" id="cb13-15" title="15">      <span class="fu">href:</span><span class="at"> https://github.com/metrumresearchgroup/covrpage</span></a>
+<a class="sourceLine" id="cb13-16" title="16">  <span class="fu">structure:</span></a>
+<a class="sourceLine" id="cb13-17" title="17">    <span class="fu">left:</span><span class="at">  </span><span class="kw">[</span>home<span class="kw">,</span> reference<span class="kw">,</span> articleindex<span class="kw">,</span> news<span class="kw">]</span></a>
+<a class="sourceLine" id="cb13-18" title="18">    <span class="fu">right:</span><span class="at"> </span><span class="kw">[</span>github<span class="kw">,</span> twitter<span class="kw">]</span></a>
+<a class="sourceLine" id="cb13-19" title="19">  <span class="fu">components:</span></a>
+<a class="sourceLine" id="cb13-20" title="20">    <span class="fu">articles:</span><span class="at"> </span><span class="ch">~</span></a>
+<a class="sourceLine" id="cb13-21" title="21">    <span class="fu">articleindex:</span></a>
+<a class="sourceLine" id="cb13-22" title="22">      <span class="fu">text:</span><span class="at"> Articles</span></a>
+<a class="sourceLine" id="cb13-23" title="23">      <span class="fu">href:</span><span class="at"> articles/index.html</span></a>
+<a class="sourceLine" id="cb13-24" title="24">    <span class="fu">twitter:</span></a>
+<a class="sourceLine" id="cb13-25" title="25">      <span class="fu">icon:</span><span class="at"> fa-lg fa-twitter</span></a>
+<a class="sourceLine" id="cb13-26" title="26">      <span class="fu">href:</span><span class="at"> http://twitter.com/MetrumRG</span></a>
+<a class="sourceLine" id="cb13-27" title="27"></a>
+<a class="sourceLine" id="cb13-28" title="28"><span class="fu">hexURL:</span></a>
+<a class="sourceLine" id="cb13-29" title="29">  https://github.com/metrumresearchgroup/covrpage/blob/master/inst/logo/covrpageLogoSCREEN.png?raw=true</a>
+<a class="sourceLine" id="cb13-30" title="30"></a>
+<a class="sourceLine" id="cb13-31" title="31"><span class="fu">reference:</span></a>
+<a class="sourceLine" id="cb13-32" title="32">  <span class="kw">-</span> <span class="fu">title:</span><span class="at"> </span><span class="st">&quot;Setup&quot;</span></a>
+<a class="sourceLine" id="cb13-33" title="33">    <span class="fu">contents:</span></a>
+<a class="sourceLine" id="cb13-34" title="34">      <span class="kw">-</span> has_concept(<span class="st">&quot;setup&quot;</span>)</a>
+<a class="sourceLine" id="cb13-35" title="35">  <span class="kw">-</span> <span class="fu">title:</span><span class="at"> </span><span class="st">&quot;Invoking&quot;</span></a>
+<a class="sourceLine" id="cb13-36" title="36">    <span class="fu">contents:</span></a>
+<a class="sourceLine" id="cb13-37" title="37">      <span class="kw">-</span> has_concept(<span class="st">&quot;invoke&quot;</span>)</a>
+<a class="sourceLine" id="cb13-38" title="38">  <span class="kw">-</span> <span class="fu">title:</span><span class="at"> </span><span class="st">&quot;Covrpage Trends&quot;</span></a>
 <a class="sourceLine" id="cb13-39" title="39">    <span class="fu">contents:</span></a>
-<a class="sourceLine" id="cb13-40" title="40">      <span class="kw">-</span> get-started</a>
-<a class="sourceLine" id="cb13-41" title="41">      <span class="kw">-</span> how-to-read-covrpage-report</a>
-<a class="sourceLine" id="cb13-42" title="42">  <span class="kw">-</span> <span class="fu">title:</span><span class="at"> </span><span class="st">&quot;Advanced&quot;</span></a>
-<a class="sourceLine" id="cb13-43" title="43">    <span class="fu">contents:</span></a>
-<a class="sourceLine" id="cb13-44" title="44">      <span class="kw">-</span> Continuous_Integration</a>
-<a class="sourceLine" id="cb13-45" title="45">      <span class="kw">-</span> Test_Results</a>
-<a class="sourceLine" id="cb13-46" title="46">      <span class="kw">-</span> snapshots</a>
-<a class="sourceLine" id="cb13-47" title="47">  <span class="kw">-</span> <span class="fu">title:</span><span class="at"> </span><span class="st">&quot;The Output&quot;</span></a>
-<a class="sourceLine" id="cb13-48" title="48">    <span class="fu">contents:</span><span class="at"> </span></a>
-<a class="sourceLine" id="cb13-49" title="49">      <span class="kw">-</span> tests_and_coverage      </a></code></pre></div>
+<a class="sourceLine" id="cb13-40" title="40">      <span class="kw">-</span> has_concept(<span class="st">&quot;log&quot;</span>)</a>
+<a class="sourceLine" id="cb13-41" title="41">  <span class="kw">-</span> <span class="fu">title:</span><span class="at"> </span><span class="st">&quot;Covrpage Utilities&quot;</span></a>
+<a class="sourceLine" id="cb13-42" title="42">    <span class="fu">contents:</span></a>
+<a class="sourceLine" id="cb13-43" title="43">      <span class="kw">-</span> has_concept(<span class="st">&quot;utility&quot;</span>)</a>
+<a class="sourceLine" id="cb13-44" title="44"></a>
+<a class="sourceLine" id="cb13-45" title="45"><span class="fu">articles:</span></a>
+<a class="sourceLine" id="cb13-46" title="46">  <span class="kw">-</span> <span class="fu">title:</span><span class="at"> </span><span class="st">&quot;Basics&quot;</span></a>
+<a class="sourceLine" id="cb13-47" title="47">    <span class="fu">contents:</span></a>
+<a class="sourceLine" id="cb13-48" title="48">      <span class="kw">-</span> get-started</a>
+<a class="sourceLine" id="cb13-49" title="49">      <span class="kw">-</span> how-to-read-covrpage-report</a>
+<a class="sourceLine" id="cb13-50" title="50">  <span class="kw">-</span> <span class="fu">title:</span><span class="at"> </span><span class="st">&quot;Advanced&quot;</span></a>
+<a class="sourceLine" id="cb13-51" title="51">    <span class="fu">contents:</span></a>
+<a class="sourceLine" id="cb13-52" title="52">      <span class="kw">-</span> Continuous_Integration</a>
+<a class="sourceLine" id="cb13-53" title="53">      <span class="kw">-</span> Test_Results</a>
+<a class="sourceLine" id="cb13-54" title="54">      <span class="kw">-</span> snapshots</a>
+<a class="sourceLine" id="cb13-55" title="55">  <span class="kw">-</span> <span class="fu">title:</span><span class="at"> </span><span class="st">&quot;The Output&quot;</span></a>
+<a class="sourceLine" id="cb13-56" title="56">    <span class="fu">contents:</span><span class="at"> </span></a>
+<a class="sourceLine" id="cb13-57" title="57">      <span class="kw">-</span> tests_and_coverage      </a></code></pre></div>
+</details>
+<p><br></p>
+</div>
+<div id="raw" class="section level3">
+<h3>Raw</h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"></a>
+<a class="sourceLine" id="cb14-2" title="2">details<span class="op">::</span><span class="kw">details</span>(</a>
+<a class="sourceLine" id="cb14-3" title="3"><span class="st">&#39;&lt;h1 style=&quot;color:blue;&quot;&gt;This is a Blue Heading&lt;/h1&gt;&lt;br&gt;</span></a>
+<a class="sourceLine" id="cb14-4" title="4"><span class="st">&lt;p style=&quot;border: 1px solid powderblue;&quot;&gt;There is a border around the text&lt;/p&gt;&#39;</span>,</a>
+<a class="sourceLine" id="cb14-5" title="5"><span class="dt">summary =</span> <span class="st">&#39;Raw code example&#39;</span>,</a>
+<a class="sourceLine" id="cb14-6" title="6"><span class="dt">lang =</span> <span class="ot">NULL</span></a>
+<a class="sourceLine" id="cb14-7" title="7">)</a></code></pre></div>
+<details closed>
+<p><summary> <span title="Click to Expand"> Raw code example </span> </summary></p>
+<h1 style="color:blue;">
+This is a Blue Heading
+</h1>
+<br>
+<p style="border: 1px solid powderblue;">
+There is a border around the text
+</p>
 </details>
 <p><br></p>
 </div>
