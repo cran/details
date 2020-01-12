@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<title>Knitr Chunk Engine</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#header {
+text-align: center;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Knitr Chunk Engine</h1>
+
+
+
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">library</span>(details)</a></code></pre></div>
+<div id="r-chunk-engine" class="section level1">
+<h1>r chunk engine</h1>
+<p>Using <code>details</code> in a standard <code>r</code> chunk is simple. There is a built in print method that handles all the different types of outputs. These methods are shown in the other vignettes. It basically looks like this:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">details<span class="op">::</span><span class="kw">details</span>({</a>
+<a class="sourceLine" id="cb2-2" title="2">  x &lt;-<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb2-3" title="3">  x <span class="op">*</span><span class="st"> </span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb2-4" title="4">},<span class="dt">summary =</span> <span class="st">&#39;click to see eval&#39;</span>)</a></code></pre></div>
+<details closed>
+<p><summary> <span title="Click to Expand"> click to see eval </span> </summary></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"></a>
+<a class="sourceLine" id="cb3-2" title="2">[<span class="dv">1</span>] <span class="dv">2</span></a></code></pre></div>
+</details>
+<p><br></p>
+<p>This is nice but leaves a lot of busy work if you want to hide the use of <code>details</code> in the output.</p>
+<p>One chunk to show the code with <code>eval</code> set to FALSE</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">  x &lt;-<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb4-2" title="2">  x <span class="op">*</span><span class="st"> </span><span class="dv">2</span></a></code></pre></div>
+<p>Another chunk with <code>echo</code> set to <code>FALSE</code> to create the <code>details</code> output</p>
+<details closed>
+<p><summary> <span title="Click to Expand"> click to see eval </span> </summary></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"></a>
+<a class="sourceLine" id="cb5-2" title="2">[<span class="dv">1</span>] <span class="dv">2</span></a></code></pre></div>
+</details>
+<p><br></p>
+<p>When you have multiple chunks in the document it can get very cumbersome and maintance instensive.</p>
+</div>
+<div id="details-chunk-engine" class="section level1">
+<h1>details chunk engine</h1>
+<p>To solve this problem there is now a <code>details</code> chunk engine that will take care of all that work for you.</p>
+<p>We add a few chunk options to control the <code>details</code> output:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Option</th>
+<th align="center">Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">details.lang</td>
+<td align="center">‘r’</td>
+</tr>
+<tr class="even">
+<td align="left">details.summary</td>
+<td align="center">NULL</td>
+</tr>
+<tr class="odd">
+<td align="left">details.tooltip</td>
+<td align="center">‘Click to Open’</td>
+</tr>
+<tr class="even">
+<td align="left">details.open</td>
+<td align="center">FALSE</td>
+</tr>
+<tr class="odd">
+<td align="left">details.imgur</td>
+<td align="center">FALSE</td>
+</tr>
+</tbody>
+</table>
+<p>Lets take the same example, this time we will use the <code>details</code> engine</p>
+<div id="default" class="section level2">
+<h2>Default</h2>
+<p>we evaluate the following chunk</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb6-1" title="1"><span class="bn">```{details}</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="bn">x &lt;- 1</span></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="bn">x * 2</span></a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="bn">```</span></a></code></pre></div>
+<p>By Default echo = <code>TRUE</code> will act just like a regular chunk echo and print put what goes into the <code>details</code> call.</p>
+<div id="output" class="section level3">
+<h3>Output</h3>
+<pre class="details"><code>x &lt;- 1
+x * 2</code></pre>
+<details closed>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"></a>
+<a class="sourceLine" id="cb8-2" title="2">[<span class="dv">1</span>] <span class="dv">2</span></a></code></pre></div>
+</details>
+<p><br></p>
+</div>
+</div>
+<div id="without-echo" class="section level2">
+<h2>Without Echo</h2>
+<div class="sourceCode" id="cb9"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb9-1" title="1"><span class="bn">```{details, echo = FALSE, details.summary = &#39;open to see eval&#39;}</span></a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="bn">x &lt;- 1</span></a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="bn">x * 2</span></a>
+<a class="sourceLine" id="cb9-4" title="4"><span class="bn">```</span></a></code></pre></div>
+<p>We can set echo = <code>FALSE</code> and only return the details output</p>
+<div id="output-1" class="section level3">
+<h3>Output</h3>
+<details closed>
+<p><summary> <span title="Click to Open"> open to see eval </span> </summary></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"></a>
+<a class="sourceLine" id="cb10-2" title="2">[<span class="dv">1</span>] <span class="dv">2</span></a></code></pre></div>
+</details>
+<p><br></p>
+</div>
+</div>
+<div id="open-with-echo" class="section level2">
+<h2>Open with Echo</h2>
+<p>We can set the details block to be open by setting the details.open to <code>TRUE</code></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb11-1" title="1"><span class="bn">```{details,details.summary = &#39;click to hide eval&#39;,details.open = TRUE}</span></a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="bn">x &lt;- 1</span></a>
+<a class="sourceLine" id="cb11-3" title="3"><span class="bn">x * 2</span></a>
+<a class="sourceLine" id="cb11-4" title="4"><span class="bn">```</span></a></code></pre></div>
+<div id="output-2" class="section level3">
+<h3>Output</h3>
+<pre class="details"><code>x &lt;- 1
+x * 2</code></pre>
+<details open>
+<p><summary> <span title="Click to Open"> click to hide eval </span> </summary></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"></a>
+<a class="sourceLine" id="cb13-2" title="2">[<span class="dv">1</span>] <span class="dv">2</span></a></code></pre></div>
+</details>
+<p><br></p>
+</div>
+</div>
+<div id="tooltip" class="section level2">
+<h2>Tooltip</h2>
+<p>We can remove the tooltip by setting <code>details.tooltip</code> to NULL</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb14-1" title="1"><span class="bn">```{details,details.summary = &#39;click to see eval&#39;,details.tooltip = NULL}</span></a>
+<a class="sourceLine" id="cb14-2" title="2"><span class="bn">x &lt;- 1</span></a>
+<a class="sourceLine" id="cb14-3" title="3"><span class="bn">x * 2</span></a>
+<a class="sourceLine" id="cb14-4" title="4"><span class="bn">```</span></a></code></pre></div>
+<div id="output-3" class="section level3">
+<h3>Output</h3>
+<pre class="details"><code>x &lt;- 1
+x * 2</code></pre>
+<details closed>
+<p><summary> click to see eval </summary></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"></a>
+<a class="sourceLine" id="cb16-2" title="2">[<span class="dv">1</span>] <span class="dv">2</span></a></code></pre></div>
+</details>
+<p><br></p>
+</div>
+</div>
+<div id="file-contents-with-no-highlighting" class="section level2">
+<h2>file contents with no highlighting</h2>
+<p>We can print out the contents of a file by putting the path in the chunk and control the highlighting language with <code>details.lang</code></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb17-1" title="1"><span class="bn">```{details,echo = FALSE, details.lang = &#39;&#39;,details.summary = &#39;open to see contents&#39;}</span></a>
+<a class="sourceLine" id="cb17-2" title="2"><span class="bn">&quot;../DESCRIPTION&quot;</span></a>
+<a class="sourceLine" id="cb17-3" title="3"><span class="bn">```</span></a></code></pre></div>
+<div id="output-4" class="section level3">
+<h3>Output</h3>
+<details closed>
+<p><summary> <span title="Click to Open"> open to see contents </span> </summary></p>
+<pre><code>
+Package: details
+Title: Create Details HTML Tag for Markdown and Package
+    Documentation
+Version: 0.2.1
+Authors@R: 
+    person(given = &quot;Jonathan&quot;,
+           family = &quot;Sidi&quot;,
+           role = c(&quot;aut&quot;, &quot;cre&quot;),
+           email = &quot;yonicd@gmail.com&quot;)
+Description: Create a details HTML tag around R objects to place
+    in a Markdown, &#39;Rmarkdown&#39; and &#39;roxygen2&#39; documentation.
+License: MIT + file LICENSE
+URL: https://github.com/yonicd/details
+BugReports: https://github.com/yonicd/details/issues
+Depends: 
+    R (&gt;= 3.2.0)
+Imports: 
+    clipr,
+    desc,
+    grid,
+    httr,
+    knitr,
+    magrittr,
+    png,
+    stats,
+    utils,
+    withr,
+    xml2
+Suggests:
+    covr,
+    rmarkdown,
+    sessioninfo,
+    testthat,
+    tibble
+VignetteBuilder: 
+    knitr
+Encoding: UTF-8
+LazyData: false
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.1
+</code></pre>
+</details>
+<p><br></p>
+</div>
+</div>
+<div id="figures" class="section level2">
+<h2>Figures</h2>
+<div class="sourceCode" id="cb19"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb19-1" title="1"><span class="bn">```{details}</span></a>
+<a class="sourceLine" id="cb19-2" title="2"><span class="bn">plot(1:10,1:10)</span></a>
+<a class="sourceLine" id="cb19-3" title="3"><span class="bn">```</span></a></code></pre></div>
+<div id="output-5" class="section level3">
+<h3>Output</h3>
+<pre class="details"><code>plot(1:10,1:10)</code></pre>
+<details closed>
+<p><img src="data:image/png;base64,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mwMECBAgQCAFAQGcAroqCRAgQICAADYHCBAgQIBACgICOAV0VRIgQIAAAQFsDhAgQIAAgRQEBHAK6KokQIAAAQKtq4lgxowZsXXr1mrqsr4SIECAQAMCBx54YHzuc59rYIvyrWq1fcejfMVnp+SHH344br755hg9enR2GqUlBAgQIJCqwN///d/HfffdF8cee2yLt6NqjoCTI9/zzjsvxowZ0+LIKiRAgACBbAosWbIktm3blkrjXANOhV2lBAgQIFDtAgK42meA/hMgQIBAKgICOBV2lRIgQIBAtQsI4GqfAfpPgAABAqkIZC6Ak5ul1qxZkwqGSgkQIECAQEsJZCKAN2/eHFdffXX07t072rZtG926dYuOHTvGJz/5ybj77rtbykI9BAgQIECgxQQy8TakcePGxapVq+Lxxx+PQw89tBC+69evj8WLF8dll10WGzdujIsvvrjFUFREgAABAgTKLZCJI+A5c+bEHXfcEQMGDIhOnTpFq1atokuXLjFo0KC49dZbY+bMmeV2UD4BAgQI5FQgOVh77rnn4p133slVDzIRwMmp5rlz59YL99hjj0X37t3rXWchAQIECFSvQPJBjuPHj48JEyZE8mmHvXr1KgRxXkQycQr6hhtuiJEjR8akSZPisMMOi86dO8e6devi5ZdfLnx286xZs/LiqZ0ECBAg0EIC3/nOd+L999+PBx54oFDjhRdeWPjEw+nTp8chhxzSQq0ovppMBPBxxx0XL7zwQuEvl+XLlxeuBydHvcl138GDBxdOSTeli0899VT867/+a72bPv3005F86PbYsWPrXW8hAQIECORLYNGiRXHnnXfWNvrII4+M888/P5555hkBXKvShCft27ePoUOHNmHL3W/So0ePOProo+vd4Nlnn43Vq1fXu85CAgQIEMifQHLPUHKT7s6PtWvXxv7777/zosw+z8QRcKl0+vfvH8lPfY/kRq/kTmsPAgQIEKgMgTPPPDO+8Y1vxLRp06JDhw6FG3avuuqqSN5Fk4dHJgI4+ZrALVu27NYrOa0wfPjw3a63ggABAgSqT+Dss88unNkcOHBg4eArOSL+7W9/G/vuu28uMDIRwMl138mTJxe+qzf5AI6PPtwF/VERrwkQIEAgEUjuFcrr50RkIoBvu+22wvcxJt/JOGXKFLOKAAECBAhUvEAm3gecKE+cOLFw3v69996reHQdJECAAAECmTgCToYhOXd/3333GRECBAgQIFAVApk5Aq4KbZ0kQIAAAQL/X0AAmwoECBAgQCAFAQGcAroqCRAgQICAADYHCBAgQIBACgICOAV0VRIgQIAAAQFsDhAgQIAAgRQEBHAK6KokQIAAAQIC2BwgQIAAAQIpCAjgFNBVSYAAAQIEBLA5QIAAAQIEUhAQwCmgq5IAAQIECAhgc4AAAQIECKQgIIBTQFclAQIECBAQwOYAAQIECBBIQUAAp4CuSgIECBAgIIDNAQIECBAgkIKAAE4BXZUECBAgQEAAmwMECBAgQCAFAQGcAroqCRAgQICAADYHCBAgQIBACgICOAV0VRIgQIAAAQFsDhAgQIAAgRQEBHAK6KokQIAAAQIC2BwgQIAAAQIpCAjgFNBVSYAAAQIEWiMgQIAAAQK7E3jzzTfj5z//eWzevDkGDx4c/fv3392mlu+hgCPgPQSzOQECBKpFYNmyZTFq1Kj44IMPok2bNnHEEUfE/Pnzq6X7Ze+nI+CyE6uAAAEC+RQYNmxY3HvvvXHCCScUOjB06NAYN25cIYi7d++ez05lqNWOgDM0GJpCgACBLAkceeSRteGbtKtPnz7Rr1+/WLp0aZaamdu2CODcDp2GEyBAoLwC7777bqxbt662ku3bt8e8efOiS5cutcs8KV5AABdvZ08CBAhUtMD5558fF1xwQSxZsiRWrFgRp512Wpx44olx1FFHVXS/W6pzrgG3lLR6CBAgkDOBkSNHxgEHHBDf/e53Y+vWrTFixIhIQtmjNAICuDSOSiFAgEBFCpxyyimR/HiUXsAp6NKbKpEAAQIECDQqIIAbJbIBAQIECBAovYAALr2pEgkQIECAQKMCArhRIhsQIECAAIHSCwjg0psqkQABAgQINCoggBslsgEBAgQIECi9gAAuvakSCRAgQIBAowICuFEiGxAgQIAAgdILCODSmyqRAAECBAg0KiCAGyWyAQECBAgQKL2AAC69qRIJECBAgECjAgK4USIbECBAgACB0gsI4NKbKpEAAQIECDQqIIAbJbIBAQIECBAovYAALr2pEgkQIECAQKMCArhRIhsQIECAAIHSCwjg0psqkQABAgQINCoggBslsgEBAgQIECi9gAAuvakSCRAgQIBAowICuFEiGxAgQIAAgdILCODSmyqRAAECBAg0KiCAGyWyAQECBAgQKL2AAC69qRIJECBAgECjAgK4USIbECBAgACB0gsI4NKbKpEAAQIECDQqIIAbJbIBAQIECBAovYAALr2pEgkQIECAQKMCArhRIhsQIECAAIHSC7QufZGlKXHbtm3xwQcfRKdOnUpToFIIECCQQYEZM2bEL3/5y2jfvn187Wtfi6OPPjqDrdSkcghk4gh4/fr18Xd/93dxxhlnxNy5c+PRRx+Nj33sY9GzZ8+46KKL4r333itH35VJgACBVAWuvfbamDJlSlx88cUxYsSIGDBgQDz++OOptknlLSeQiQD+3ve+FwsWLIg/+qM/iksvvTS+9a1vFUJ4+fLlsXnz5pg+fXrLiaiJAAECLSCwZMmS+OlPfxr/8i//UjjqPemkk2LlypUxefLkFqhdFVkQyMQp6EceeaQQwB07dow33ngj3nrrrRg0aFDB56qrroorrriicGqmMbAf/vCHcf/999e72dKlS6Nv3771rrOQAAECLS3w9ttvx5lnnhl77713bdUHHXRQ7LPPPrWvPalsgUwE8Mc//vF44oknYujQofHUU0/Fhg0batX//d//PQYOHFj7uqEnyenq5Ke+x+WXXx6rVq2qb5VlBAgQaHGB3r17x29+85tYu3Zt7LfffoX6Fy9eHMmRsUd1CGQigK+88so4//zzY9myZfEXf/EX8e6770YSysccc0zMnz8/5s2bVx2joZcECFSNQK9evQpn9rp27RozZ86M999/P6ZOnRo/+clPqsag2juaiQBOTjcnf/m98847sf/++8emTZti9uzZhb8M77777ujQoUO1j5P+EyBQgQJ//Md/HAsXLizcfNquXbv48Y9/HH369KnAnupSfQKZCOCkYa1atSqEb/I8mYjJxPQgQIBApQuccMIJkfx4VJ9AJu6Crj52PSZAgACBahcQwNU+A/SfAAECBFIREMCpsKuUAAECBKpdQABX+wzQfwIECBBIRUAAp8KuUgIECBCodgEBXO0zQP8JECBAIBUBAZwKu0oJECBAoNoFBHC1zwD9J0CAAIFUBARwKuwqJUCAAIFqFxDA1T4D9J8AAQIEUhEQwKmwq5QAAQIEql1AAFf7DNB/AgQIEEhFQACnwq5SAgQIEKh2AQFc7TNA/wkQIEAgFQEBnAq7SgkQIECg2gUEcLXPAP0nQIAAgVQEBHAq7ColQIAAgWoXEMDV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Odp99dVX66x94YUXCkfBdRZ6QYAAAQIEihBwE9Zu0P7sz/4szj777OjRo0f8/u//fjz99NMxduzYWLt27W72sJgAAQIECDRdQADvxurAAw+MmTNnxl/91V/FPffcE8nrFStWRJcuXXazh8UECBAgQKDpAgK4Aatu3brFXXfd1cAWVhEgQIAAgeIEXAMuzs1eBAgQIECgWQICuFl8diZAgAABAsUJCODi3OxFgAABAgSaJSCAm8VnZwIECBAgUJyAAC7OzV4ECBAgQKBZAgK4WXx2JkCAAAECxQkI4OLc7EWAAAECBJolIICbxWdnAgQIECBQnECr7Tsexe2ar72SL1cYNmxYHHfccflqeBNa++yzzxa2atWqVRO2tslHBbZu3RoffvhhtGvX7qOrvG6iwPvvvx8dO3Zs4tY2+6jApk2bYu+9947WrX020kdtmvK6JsY+/elPN2XzOtssW7YsnnjiiTj44IPrLG+JF1UTwC2BmVYdI0aMiClTpkT37t3TakKu603+8S1cuDCuvvrqXPcjzcYPGTIk5s2bl2YTcl33d7/73TjxxBPj85//fK77kVbj33zzzRg3blw8+OCDaTWhqHqdgi6KzU4ECBAgQKB5AgK4eX72JkCAAAECRQkI4KLY7ESAAAECBJonIICb52dvAgQIECBQlIAALorNTgQIECBAoHkCArh5fvYmQIAAAQJFCXgbUlFs2dopuQX/gAMOiL328vdUMSOzYcOGSN6Hud9++xWzu312CPzP//xPHHTQQSyKFFi7dm3hfegdOnQosoTq3m3btm3x1ltvxYEHHpgrCAGcq+HSWAIECBCoFAGHTJUykvpBgAABArkSEMC5Gi6NJUCAAIFKERDAlTKS+kGAAAECuRIQwLkaLo0lQIAAgUoREMCVMpL6QYAAAQK5EhDAuRoujSVAgACBShEQwJUykvpBgAABArkSEMC5Gi6NJUCAAIEagS1bttQ8zeVvAZzLYfvfRi9evDi++tWvxjHHHBMnn3xy7r6MOkv0F110UYwZMyZLTcpFW371q1/FCSecEJ/4xCfii1/8Yrz88su5aHdWGvnaa6/FueeeG8cee2ycfvrp8eSTT2alaZlvxwMPPBCDBg2q08558+bFZz7zmejbt2+ceeaZsWbNmjrrM/diu0duBb7whS9s//GPf1xo/+uvv759x8ewbV+1alVu+5NWwx977LHt3bp1274jhNNqQi7r3bhx4/ZDDz10+3PPPVdo/47/ELd/+ctfzmVf0mr0hRdeuP1v/uZvCtUvXLiw4LnjqC6t5uSi3nfeeWf7JZdcsr179+7bBw4cWNvm1atXb9/xcajbX3zxxe2bN2/efvnll2//2te+Vrs+i08cAWfuT6KmNSj57NOvf/3rhSPgZI+ePXvGvvvuG88//3zTCrBVQeDtt9+O73znOzFu3Dgieygwa9asOPzww+Okk06KdevWxVe+8pWYMWPGHpZS3ZvvCI1o27ZtASH597vjD+j48MMPqxulkd7/4he/iH322Sd2HHzU2XLRokXx8Y9/PAYMGBBt2rQp/Jv+6U9/WmebrL0QwFkbkSa2J/niheHDhxcmWrJLMimT0y0fPSXTxOKqdrOLL744vv3tb0enTp2q1qDYjv/2t7+NHWcOYvDgwbHjaCQOO+yw+M1vflNscVW5X/LH39SpU+Pss8+OHWe04vbbby98KUNVYjSx04nVjTfeGB/94ooVK1bU+UKQj33sY4U/DJMvWsnqQwBndWT2oF1LliwpXEeaPHmyb/TZA7f777+/8I/41FNP3YO9bFojkBy9PfTQQzF27NhIziScdtppMXHixJrVfjdB4Jlnnokdp0YLR24HH3xwJNcwt27d2oQ9bfJRgWQOduzYsXZxTUB/8MEHtcuy9kQAZ21E9rA9r7zySgwZMiTGjx9fezp6D4uoys2Tf6yXXXZZfO5zn4sd14ALNw8lR3Q7rmdWpUcxnU6+vjG5+WrkyJGFyx/f/OY349FHH40d19+KKa7q9kmC9hvf+Eb85Cc/iQkTJkQSxnPmzIn58+dXnUUpOpx8Jev69etri3r33Xejffv20bVr19plWXvSOmsN0p6mCyxbtiw+//nPxzXXXFM4Cmn6nrZMvn81uX55xx13FDBWrlwZO24qinvvvddp/CZOj169ehWCt2bz5Lpb8t3Kyf0JHo0LJJeMkuu9ybsYkkdyWen444+P//7v/y78Ud14CbbYWSCZj8uXL69dlDzv3bt37essPnEEnMVRaWKbkrcv/Mmf/EnhyHfHnYGR/Dj6aBpecr3y2Wefrf358z//8/jSl75UuAbXtBJslbzt6NVXX40FCxYUMKZNm1a4ISs56vBoXCC5bp7cszF9+vTCxknwJke/yb0dHnsukJzNSg5Kkvthkuu+N998c+y4K3/PC2rBPRwBtyB2Kava8ZaF2vBIbkioefzoRz+K0aNH17z0m0DZBJK7dpPQTf5wSa69tW7dOn72s5+Vrb5KLHjHW5AKNwEmv5PHTTfdlOlTplkeg3bt2kVyH0zyB0yXLl2if//+MWXKlCw3OVol743KdAs1jgCBTAsk/4W89dZbhTuhM93QDDcuuXbZuXPnDLcwP01Lrq0n13+zfO23RlMA10j4TYAAAQIEWlDANeAWxFYVAQIECBCoERDANRJ+EyBAgACBFhQQwC2IrSoCBAgQIFAjIIBrJPwmQIAAAQItKCCAWxBbVQQIECBAoEZAANdI+E2AAAECBFpQQAC3ILaqCBAgQIBAjYAArpHwmwABAgQItKCAAG5BbFURIECAAIEaAQFcI+E3AQIECBBoQQEB3ILYqiJAgAABAjUCArhGwm8CBAgQINCCAgK4BbFVRYAAAQIEagQEcI2E3wQIECBAoAUFBHALYquKAAECBAjUCAjgGgm/CRAgQIBACwoI4BbEVhUBAgQIEKgREMA1En4TqCCBrVu3xvbt2xvtUVO3a7QgGxAgsMcCAniPyexAINsCv/vd7+KQQw6JZcuWNdjQ+rZbs2ZNjBgxIvr16xdHH310PPvssw2WYSUBAsULCODi7exJIHMCd911VwwdOjRWr17dYNt2t92YMWNiwIABsWTJkrjtttvirLPOig0bNjRYlpUECBQnIICLc7MXgcwJbN68OR566KGYNWtW7LfffnXaN2HChLjmmmsKyxra7uc//3l8/etfj1atWsWQIUOiV69eMX/+/DpleUGAQGkEWpemGKUQIJC2QNu2bWP27Nn1NuNTn/pUbNmypbBud9slp583bdoU3bp1qy2jR48e8eabb9a+9oQAgdIJCODSWSqJQGYFTjvttEbb9vbbb0fHjh3rbNehQ4d477336izzggCB0gg4BV0aR6UQyL3AAQccEOvXr6/Tj+R1z5496yzzggCB0ggI4NI4KoVA7gWS68bJEe9rr71W25fly5dHnz59al97QoBA6QQEcOkslUQgswIvv/xyvPTSS422L3kL0o033hjJ+4Mffvjh2GuvveKoo45qdD8bECCw5wKuAe+5mT0I5E5g8uTJhbcTTZs2rcG2X3vttXHGGWcU3kecHA3feeed0aZNmwb3sZIAgeIEWu34tJzGPy6nuLLtRYBATgWS9xF37949p63XbAL5EBDA+RgnrSRAgACBChNwDbjCBlR3CBAgQCAfAgI4H+OklQQIECBQYQICuMIGVHcIECBAIB8CAjgf46SVBAgQIFBhAgK4wgZUdwgQIEAgHwICOB/jpJUECBAgUGECArjCBlR3CBAgQCAfAgI4H+OklQQIECBQYQICuMIGVHcIECBAIB8CAjgf46SVBAgQIFBhAgK4wgZUdwgQIEAgHwICOB/jpJUECBAgUGECArjCBlR3CBAgQCAfAgI4H+OklQQIECBQYQICuMIGVHcIECBAIB8CAjgf46SVBAgQIFBhAv8PllGwQ2Gl3W8AAAAASUVORK5CYII=" width="480" /></p>
+</details>
+<p><br></p>
+</div>
+</div>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

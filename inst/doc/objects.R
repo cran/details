@@ -20,10 +20,11 @@ library(details)
  list(a = 1,b = head(iris))%>%
   details::details(summary = 'list')
 
-## ----eval = httr::status_code(httr::HEAD('imgur.com',httr::timeout(1)))==200L----
+## ------------------------------------------------------------------------
 
 details(
   plot(x=mtcars$mpg,y=mtcars$wt),
-  summary = 'plots')
+  summary = 'plots',
+  imgur = FALSE)
 
 
