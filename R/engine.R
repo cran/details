@@ -3,7 +3,7 @@
 }
 
 #' @importFrom utils getFromNamespace
-#' @importFrom knitr fig_path engine_output
+#' @importFrom knitr fig_path engine_output sew
 #' @importFrom grid grid.raster convertUnit unit
 #' @importFrom png readPNG
 eng_detail <- function (options) {
@@ -16,6 +16,7 @@ eng_detail <- function (options) {
   options$details.summary <- options$details.summary %n% NULL
   options$details.open <- options$details.open %n% FALSE
   options$details.imgur <- options$details.imgur %n% FALSE
+  options$details.comment <- options$details.comment %n% NA
   
   if(!is.null(options$fig.dim)){
     options$fig.width <- options$fig.dim[1]
@@ -40,17 +41,18 @@ eng_detail <- function (options) {
                   summary = options$details.summary,
                   open = options$details.open,
                   imgur = options$details.imgur,
+                  comment = options$details.comment,
                   output = 'character')
   
   if(length(attr(code,'file'))>0){
     
     this <- attr(code,'file')
     
-    wrap_path <- utils::getFromNamespace('wrap.knit_image_paths','knitr')
     plot_counter <- utils::getFromNamespace("plot_counter", "knitr")
     in_base_dir <- utils::getFromNamespace("in_base_dir", "knitr")
     
     tmp <- knitr::fig_path('png', number = plot_counter())
+    tmp <- structure(tmp,class = c('knit_image_paths',class(tmp)))
     
     if(!grepl('^-',tmp)){
       
@@ -59,7 +61,7 @@ eng_detail <- function (options) {
       file.copy(this,tmp)
     })
 
-    code <- gsub(this,wrap_path(tmp),code)
+    code <- gsub(this,knitr::sew(tmp),code)
     
     }else{
       

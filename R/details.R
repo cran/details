@@ -1,6 +1,6 @@
 #' @title Create HTML DOM Details
 #' 
-#' @description Create HTLM DOM Details block for Markdown documents
+#' @description Create HTML DOM Details block for Markdown documents
 #'  with summary as optional.
 #' 
 #' @param object object, object to put in details block
@@ -16,13 +16,14 @@
 #'  clipboard or R file editor, 
 #'  Default: c('console','clipr','file.edit','character')
 #' @param imgur logical, upload device outputs to imgur, Default: TRUE
+#' @param comment character, the prefix to be put before source code output, Default: NA 
 #' @seealso [use_details][details::use_details]
 #' @details 
 #'   To remove summary or tooltip set them to NULL.
 #'   If the object is a file path, it will automatically it's lines will be read 
 #'   in internally.
 #'
-#'   If lang is NULL then the output will not be wrapped in a code block and 
+#'   If lang is 'none' then the output will not be wrapped in a code block and 
 #'   will display the raw output (useful for HTML)
 #'  
 #'   When using details in knitr/rmarkdown documents there is no need to set
@@ -82,8 +83,9 @@ details <- function(object,
                     tooltip = 'Click to Expand', 
                     open    = FALSE, 
                     lang    = 'r',
-                    output  = c('console','clipr','edit','character'),
-                    imgur = TRUE
+                    output  = c('console','clipr','edit','character','html'),
+                    imgur = TRUE,
+                    comment = NA
                     ){
   
   on.exit({
@@ -99,16 +101,21 @@ details <- function(object,
   
   object <- device_check(object,env = details_env)
   
-  output <- match.arg(output,c('console','clipr','edit','character'))
+  output <- match.arg(output,c('console','clipr','edit','character','html'))
   
   if(!details_env$imgur)
     output <- 'image'
+  
+  if(output=='html'){
+    lang <- 'none'
+  }
   
   build_details(text    = read_text(object), 
                 summary = build_summary(summary,tooltip), 
                 state   = build_state(open), 
                 lang    = lang,
                 output  = output,
+                comment = comment,
                 ...)
   
 }
