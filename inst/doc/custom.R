@@ -1,4 +1,4 @@
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -8,30 +8,30 @@ knitr::opts_chunk$set(
 library(details)
 
 ## -----------------------------------------------------------------------------
-  R.version %>%
+  R.version |>
   details::details()
 
 ## -----------------------------------------------------------------------------
-R.version.string %>%
+R.version.string |>
   details::details(
     summary = 'R Version'
   )
 
 ## -----------------------------------------------------------------------------
-R.version.string %>%
+R.version.string |>
   details::details(
     summary = '<font color="red"> R Version </font>'
   )
 
 ## -----------------------------------------------------------------------------
-R.version.string %>%
+R.version.string |>
   details::details(
     summary = 'Open by default',
     open = TRUE
   )
 
 ## -----------------------------------------------------------------------------
-R.version.string %>%
+R.version.string |>
   details::details(
     summary = 'Use the current date as the tooltip',
     tooltip = Sys.Date()
@@ -41,7 +41,7 @@ R.version.string %>%
 
 readLines(
   'https://raw.githubusercontent.com/metrumresearchgroup/covrpage/master/_pkgdown.yml'
-  )%>%
+  )|>
   details::details(
     summary = 'yaml example',
     lang = 'yml'

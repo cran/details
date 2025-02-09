@@ -1,4 +1,4 @@
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -9,7 +9,7 @@ library(details)
 
 ## -----------------------------------------------------------------------------
 
-sessioninfo::session_info()%>%
+sessioninfo::session_info()|>
   details::details(
     summary = 'Current session info',
     open    = TRUE

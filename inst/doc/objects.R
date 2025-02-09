@@ -1,4 +1,4 @@
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -8,16 +8,16 @@ knitr::opts_chunk$set(
 library(details)
 
 ## -----------------------------------------------------------------------------
- iris%>%
+ iris|>
   details::details(summary = 'data.frame')
 
 ## -----------------------------------------------------------------------------
- iris%>%
-  tibble::as_tibble()%>%
+ iris|>
+  tibble::as_tibble()|>
   details::details(summary = 'tibble')
 
 ## -----------------------------------------------------------------------------
- list(a = 1,b = head(iris))%>%
+ list(a = 1,b = head(iris))|>
   details::details(summary = 'list')
 
 ## -----------------------------------------------------------------------------
@@ -29,7 +29,8 @@ details(
 
 
 ## -----------------------------------------------------------------------------
-iris%>%head()%>%knitr::kable()%>%
+iris|>head() |>
+  knitr::kable() |>
   details(
     summary = 'tables',
     lang = 'none'

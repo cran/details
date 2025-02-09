@@ -14,28 +14,41 @@
 
 <title>Special Details</title>
 
-<script src="data:application/javascript;base64,Ly8gUGFuZG9jIDIuOSBhZGRzIGF0dHJpYnV0ZXMgb24gYm90aCBoZWFkZXIgYW5kIGRpdi4gV2UgcmVtb3ZlIHRoZSBmb3JtZXIgKHRvCi8vIGJlIGNvbXBhdGlibGUgd2l0aCB0aGUgYmVoYXZpb3Igb2YgUGFuZG9jIDwgMi44KS4KZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignRE9NQ29udGVudExvYWRlZCcsIGZ1bmN0aW9uKGUpIHsKICB2YXIgaHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJkaXYuc2VjdGlvbltjbGFzcyo9J2xldmVsJ10gPiA6Zmlyc3QtY2hpbGQiKTsKICB2YXIgaSwgaCwgYTsKICBmb3IgKGkgPSAwOyBpIDwgaHMubGVuZ3RoOyBpKyspIHsKICAgIGggPSBoc1tpXTsKICAgIGlmICghL15oWzEtNl0kL2kudGVzdChoLnRhZ05hbWUpKSBjb250aW51ZTsgIC8vIGl0IHNob3VsZCBiZSBhIGhlYWRlciBoMS1oNgogICAgYSA9IGguYXR0cmlidXRlczsKICAgIHdoaWxlIChhLmxlbmd0aCA+IDApIGgucmVtb3ZlQXR0cmlidXRlKGFbMF0ubmFtZSk7CiAgfQp9KTsK"></script>
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
 
 <style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-    </style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
 
 
 
 <style type="text/css">
-  code {
-    white-space: pre;
-  }
-  .sourceCode {
-    overflow: visible;
-  }
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
 </style>
 <style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -51,55 +64,54 @@ pre > code.sourceCode { white-space: pre-wrap; }
 pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
-  { counter-reset: source-line 0; }
+{ counter-reset: source-line 0; }
 pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
+{ position: relative; left: -4em; counter-increment: source-line; }
 pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
 div.sourceCode
-  {   }
+{ }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
 </style>
 <script>
 // apply pandoc div.sourceCode style to pre.sourceCode instead
@@ -108,13 +120,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   for (var i = 0; i < sheets.length; i++) {
     if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
     try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
+    var j = 0;
+    while (j < rules.length) {
       var rule = rules[j];
       // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
       var style = rule.style.cssText;
       // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
       // replace div.sourceCode by a pre.sourceCode rule
       sheets[i].deleteRule(j);
       sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
@@ -126,7 +145,187 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<link rel="stylesheet" href="data:text/css,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" type="text/css" />
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
 
 
 
@@ -142,8 +341,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(details)</span></code></pre></div>
-<p>You can wrap print methods of R objects in a <code>details</code> environment.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(details)</span></code></pre></div>
+<p>You can wrap print methods of R objects in a <code>details</code>
+environment.</p>
 <ol style="list-style-type: decimal">
 <li><a href="#data.frame">data.frame</a></li>
 <li><a href="#tibble">tibble</a></li>
@@ -153,241 +353,240 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <div id="data.frame" class="section level3">
 <h3>data.frame</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a> iris<span class="sc">%&gt;%</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  details<span class="sc">::</span><span class="fu">details</span>(<span class="at">summary =</span> <span class="st">&#39;data.frame&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a> iris<span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>  details<span class="sc">::</span><span class="fu">details</span>(<span class="at">summary =</span> <span class="st">&#39;data.frame&#39;</span>)</span></code></pre></div>
 <details closed>
 <summary>
 <span title="Click to Expand"> data.frame </span>
 </summary>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    Sepal.Length Sepal.Width Petal.Length Petal.Width    Species</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>            <span class="fl">5.1</span>         <span class="fl">3.5</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span>     setosa</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>            <span class="fl">4.9</span>         <span class="fl">3.0</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span>     setosa</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span>            <span class="fl">4.7</span>         <span class="fl">3.2</span>          <span class="fl">1.3</span>         <span class="fl">0.2</span>     setosa</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span>            <span class="fl">4.6</span>         <span class="fl">3.1</span>          <span class="fl">1.5</span>         <span class="fl">0.2</span>     setosa</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span>            <span class="fl">5.0</span>         <span class="fl">3.6</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span>     setosa</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span>            <span class="fl">5.4</span>         <span class="fl">3.9</span>          <span class="fl">1.7</span>         <span class="fl">0.4</span>     setosa</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span>            <span class="fl">4.6</span>         <span class="fl">3.4</span>          <span class="fl">1.4</span>         <span class="fl">0.3</span>     setosa</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="dv">8</span>            <span class="fl">5.0</span>         <span class="fl">3.4</span>          <span class="fl">1.5</span>         <span class="fl">0.2</span>     setosa</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="dv">9</span>            <span class="fl">4.4</span>         <span class="fl">2.9</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span>     setosa</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span>           <span class="fl">4.9</span>         <span class="fl">3.1</span>          <span class="fl">1.5</span>         <span class="fl">0.1</span>     setosa</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="dv">11</span>           <span class="fl">5.4</span>         <span class="fl">3.7</span>          <span class="fl">1.5</span>         <span class="fl">0.2</span>     setosa</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="dv">12</span>           <span class="fl">4.8</span>         <span class="fl">3.4</span>          <span class="fl">1.6</span>         <span class="fl">0.2</span>     setosa</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="dv">13</span>           <span class="fl">4.8</span>         <span class="fl">3.0</span>          <span class="fl">1.4</span>         <span class="fl">0.1</span>     setosa</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="dv">14</span>           <span class="fl">4.3</span>         <span class="fl">3.0</span>          <span class="fl">1.1</span>         <span class="fl">0.1</span>     setosa</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="dv">15</span>           <span class="fl">5.8</span>         <span class="fl">4.0</span>          <span class="fl">1.2</span>         <span class="fl">0.2</span>     setosa</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="dv">16</span>           <span class="fl">5.7</span>         <span class="fl">4.4</span>          <span class="fl">1.5</span>         <span class="fl">0.4</span>     setosa</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="dv">17</span>           <span class="fl">5.4</span>         <span class="fl">3.9</span>          <span class="fl">1.3</span>         <span class="fl">0.4</span>     setosa</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="dv">18</span>           <span class="fl">5.1</span>         <span class="fl">3.5</span>          <span class="fl">1.4</span>         <span class="fl">0.3</span>     setosa</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="dv">19</span>           <span class="fl">5.7</span>         <span class="fl">3.8</span>          <span class="fl">1.7</span>         <span class="fl">0.3</span>     setosa</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="dv">20</span>           <span class="fl">5.1</span>         <span class="fl">3.8</span>          <span class="fl">1.5</span>         <span class="fl">0.3</span>     setosa</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="dv">21</span>           <span class="fl">5.4</span>         <span class="fl">3.4</span>          <span class="fl">1.7</span>         <span class="fl">0.2</span>     setosa</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="dv">22</span>           <span class="fl">5.1</span>         <span class="fl">3.7</span>          <span class="fl">1.5</span>         <span class="fl">0.4</span>     setosa</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="dv">23</span>           <span class="fl">4.6</span>         <span class="fl">3.6</span>          <span class="fl">1.0</span>         <span class="fl">0.2</span>     setosa</span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="dv">24</span>           <span class="fl">5.1</span>         <span class="fl">3.3</span>          <span class="fl">1.7</span>         <span class="fl">0.5</span>     setosa</span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="dv">25</span>           <span class="fl">4.8</span>         <span class="fl">3.4</span>          <span class="fl">1.9</span>         <span class="fl">0.2</span>     setosa</span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="dv">26</span>           <span class="fl">5.0</span>         <span class="fl">3.0</span>          <span class="fl">1.6</span>         <span class="fl">0.2</span>     setosa</span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="dv">27</span>           <span class="fl">5.0</span>         <span class="fl">3.4</span>          <span class="fl">1.6</span>         <span class="fl">0.4</span>     setosa</span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="dv">28</span>           <span class="fl">5.2</span>         <span class="fl">3.5</span>          <span class="fl">1.5</span>         <span class="fl">0.2</span>     setosa</span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="dv">29</span>           <span class="fl">5.2</span>         <span class="fl">3.4</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span>     setosa</span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="dv">30</span>           <span class="fl">4.7</span>         <span class="fl">3.2</span>          <span class="fl">1.6</span>         <span class="fl">0.2</span>     setosa</span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="dv">31</span>           <span class="fl">4.8</span>         <span class="fl">3.1</span>          <span class="fl">1.6</span>         <span class="fl">0.2</span>     setosa</span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="dv">32</span>           <span class="fl">5.4</span>         <span class="fl">3.4</span>          <span class="fl">1.5</span>         <span class="fl">0.4</span>     setosa</span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="dv">33</span>           <span class="fl">5.2</span>         <span class="fl">4.1</span>          <span class="fl">1.5</span>         <span class="fl">0.1</span>     setosa</span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="dv">34</span>           <span class="fl">5.5</span>         <span class="fl">4.2</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span>     setosa</span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="dv">35</span>           <span class="fl">4.9</span>         <span class="fl">3.1</span>          <span class="fl">1.5</span>         <span class="fl">0.2</span>     setosa</span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="dv">36</span>           <span class="fl">5.0</span>         <span class="fl">3.2</span>          <span class="fl">1.2</span>         <span class="fl">0.2</span>     setosa</span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="dv">37</span>           <span class="fl">5.5</span>         <span class="fl">3.5</span>          <span class="fl">1.3</span>         <span class="fl">0.2</span>     setosa</span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="dv">38</span>           <span class="fl">4.9</span>         <span class="fl">3.6</span>          <span class="fl">1.4</span>         <span class="fl">0.1</span>     setosa</span>
-<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a><span class="dv">39</span>           <span class="fl">4.4</span>         <span class="fl">3.0</span>          <span class="fl">1.3</span>         <span class="fl">0.2</span>     setosa</span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="dv">40</span>           <span class="fl">5.1</span>         <span class="fl">3.4</span>          <span class="fl">1.5</span>         <span class="fl">0.2</span>     setosa</span>
-<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="dv">41</span>           <span class="fl">5.0</span>         <span class="fl">3.5</span>          <span class="fl">1.3</span>         <span class="fl">0.3</span>     setosa</span>
-<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a><span class="dv">42</span>           <span class="fl">4.5</span>         <span class="fl">2.3</span>          <span class="fl">1.3</span>         <span class="fl">0.3</span>     setosa</span>
-<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a><span class="dv">43</span>           <span class="fl">4.4</span>         <span class="fl">3.2</span>          <span class="fl">1.3</span>         <span class="fl">0.2</span>     setosa</span>
-<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a><span class="dv">44</span>           <span class="fl">5.0</span>         <span class="fl">3.5</span>          <span class="fl">1.6</span>         <span class="fl">0.6</span>     setosa</span>
-<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="dv">45</span>           <span class="fl">5.1</span>         <span class="fl">3.8</span>          <span class="fl">1.9</span>         <span class="fl">0.4</span>     setosa</span>
-<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a><span class="dv">46</span>           <span class="fl">4.8</span>         <span class="fl">3.0</span>          <span class="fl">1.4</span>         <span class="fl">0.3</span>     setosa</span>
-<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a><span class="dv">47</span>           <span class="fl">5.1</span>         <span class="fl">3.8</span>          <span class="fl">1.6</span>         <span class="fl">0.2</span>     setosa</span>
-<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a><span class="dv">48</span>           <span class="fl">4.6</span>         <span class="fl">3.2</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span>     setosa</span>
-<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a><span class="dv">49</span>           <span class="fl">5.3</span>         <span class="fl">3.7</span>          <span class="fl">1.5</span>         <span class="fl">0.2</span>     setosa</span>
-<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a><span class="dv">50</span>           <span class="fl">5.0</span>         <span class="fl">3.3</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span>     setosa</span>
-<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a><span class="dv">51</span>           <span class="fl">7.0</span>         <span class="fl">3.2</span>          <span class="fl">4.7</span>         <span class="fl">1.4</span> versicolor</span>
-<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a><span class="dv">52</span>           <span class="fl">6.4</span>         <span class="fl">3.2</span>          <span class="fl">4.5</span>         <span class="fl">1.5</span> versicolor</span>
-<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a><span class="dv">53</span>           <span class="fl">6.9</span>         <span class="fl">3.1</span>          <span class="fl">4.9</span>         <span class="fl">1.5</span> versicolor</span>
-<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a><span class="dv">54</span>           <span class="fl">5.5</span>         <span class="fl">2.3</span>          <span class="fl">4.0</span>         <span class="fl">1.3</span> versicolor</span>
-<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a><span class="dv">55</span>           <span class="fl">6.5</span>         <span class="fl">2.8</span>          <span class="fl">4.6</span>         <span class="fl">1.5</span> versicolor</span>
-<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a><span class="dv">56</span>           <span class="fl">5.7</span>         <span class="fl">2.8</span>          <span class="fl">4.5</span>         <span class="fl">1.3</span> versicolor</span>
-<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a><span class="dv">57</span>           <span class="fl">6.3</span>         <span class="fl">3.3</span>          <span class="fl">4.7</span>         <span class="fl">1.6</span> versicolor</span>
-<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a><span class="dv">58</span>           <span class="fl">4.9</span>         <span class="fl">2.4</span>          <span class="fl">3.3</span>         <span class="fl">1.0</span> versicolor</span>
-<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a><span class="dv">59</span>           <span class="fl">6.6</span>         <span class="fl">2.9</span>          <span class="fl">4.6</span>         <span class="fl">1.3</span> versicolor</span>
-<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a><span class="dv">60</span>           <span class="fl">5.2</span>         <span class="fl">2.7</span>          <span class="fl">3.9</span>         <span class="fl">1.4</span> versicolor</span>
-<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a><span class="dv">61</span>           <span class="fl">5.0</span>         <span class="fl">2.0</span>          <span class="fl">3.5</span>         <span class="fl">1.0</span> versicolor</span>
-<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a><span class="dv">62</span>           <span class="fl">5.9</span>         <span class="fl">3.0</span>          <span class="fl">4.2</span>         <span class="fl">1.5</span> versicolor</span>
-<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a><span class="dv">63</span>           <span class="fl">6.0</span>         <span class="fl">2.2</span>          <span class="fl">4.0</span>         <span class="fl">1.0</span> versicolor</span>
-<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a><span class="dv">64</span>           <span class="fl">6.1</span>         <span class="fl">2.9</span>          <span class="fl">4.7</span>         <span class="fl">1.4</span> versicolor</span>
-<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a><span class="dv">65</span>           <span class="fl">5.6</span>         <span class="fl">2.9</span>          <span class="fl">3.6</span>         <span class="fl">1.3</span> versicolor</span>
-<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a><span class="dv">66</span>           <span class="fl">6.7</span>         <span class="fl">3.1</span>          <span class="fl">4.4</span>         <span class="fl">1.4</span> versicolor</span>
-<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a><span class="dv">67</span>           <span class="fl">5.6</span>         <span class="fl">3.0</span>          <span class="fl">4.5</span>         <span class="fl">1.5</span> versicolor</span>
-<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a><span class="dv">68</span>           <span class="fl">5.8</span>         <span class="fl">2.7</span>          <span class="fl">4.1</span>         <span class="fl">1.0</span> versicolor</span>
-<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a><span class="dv">69</span>           <span class="fl">6.2</span>         <span class="fl">2.2</span>          <span class="fl">4.5</span>         <span class="fl">1.5</span> versicolor</span>
-<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a><span class="dv">70</span>           <span class="fl">5.6</span>         <span class="fl">2.5</span>          <span class="fl">3.9</span>         <span class="fl">1.1</span> versicolor</span>
-<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a><span class="dv">71</span>           <span class="fl">5.9</span>         <span class="fl">3.2</span>          <span class="fl">4.8</span>         <span class="fl">1.8</span> versicolor</span>
-<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a><span class="dv">72</span>           <span class="fl">6.1</span>         <span class="fl">2.8</span>          <span class="fl">4.0</span>         <span class="fl">1.3</span> versicolor</span>
-<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a><span class="dv">73</span>           <span class="fl">6.3</span>         <span class="fl">2.5</span>          <span class="fl">4.9</span>         <span class="fl">1.5</span> versicolor</span>
-<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a><span class="dv">74</span>           <span class="fl">6.1</span>         <span class="fl">2.8</span>          <span class="fl">4.7</span>         <span class="fl">1.2</span> versicolor</span>
-<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a><span class="dv">75</span>           <span class="fl">6.4</span>         <span class="fl">2.9</span>          <span class="fl">4.3</span>         <span class="fl">1.3</span> versicolor</span>
-<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a><span class="dv">76</span>           <span class="fl">6.6</span>         <span class="fl">3.0</span>          <span class="fl">4.4</span>         <span class="fl">1.4</span> versicolor</span>
-<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a><span class="dv">77</span>           <span class="fl">6.8</span>         <span class="fl">2.8</span>          <span class="fl">4.8</span>         <span class="fl">1.4</span> versicolor</span>
-<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a><span class="dv">78</span>           <span class="fl">6.7</span>         <span class="fl">3.0</span>          <span class="fl">5.0</span>         <span class="fl">1.7</span> versicolor</span>
-<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a><span class="dv">79</span>           <span class="fl">6.0</span>         <span class="fl">2.9</span>          <span class="fl">4.5</span>         <span class="fl">1.5</span> versicolor</span>
-<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a><span class="dv">80</span>           <span class="fl">5.7</span>         <span class="fl">2.6</span>          <span class="fl">3.5</span>         <span class="fl">1.0</span> versicolor</span>
-<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a><span class="dv">81</span>           <span class="fl">5.5</span>         <span class="fl">2.4</span>          <span class="fl">3.8</span>         <span class="fl">1.1</span> versicolor</span>
-<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a><span class="dv">82</span>           <span class="fl">5.5</span>         <span class="fl">2.4</span>          <span class="fl">3.7</span>         <span class="fl">1.0</span> versicolor</span>
-<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a><span class="dv">83</span>           <span class="fl">5.8</span>         <span class="fl">2.7</span>          <span class="fl">3.9</span>         <span class="fl">1.2</span> versicolor</span>
-<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a><span class="dv">84</span>           <span class="fl">6.0</span>         <span class="fl">2.7</span>          <span class="fl">5.1</span>         <span class="fl">1.6</span> versicolor</span>
-<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a><span class="dv">85</span>           <span class="fl">5.4</span>         <span class="fl">3.0</span>          <span class="fl">4.5</span>         <span class="fl">1.5</span> versicolor</span>
-<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a><span class="dv">86</span>           <span class="fl">6.0</span>         <span class="fl">3.4</span>          <span class="fl">4.5</span>         <span class="fl">1.6</span> versicolor</span>
-<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a><span class="dv">87</span>           <span class="fl">6.7</span>         <span class="fl">3.1</span>          <span class="fl">4.7</span>         <span class="fl">1.5</span> versicolor</span>
-<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a><span class="dv">88</span>           <span class="fl">6.3</span>         <span class="fl">2.3</span>          <span class="fl">4.4</span>         <span class="fl">1.3</span> versicolor</span>
-<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a><span class="dv">89</span>           <span class="fl">5.6</span>         <span class="fl">3.0</span>          <span class="fl">4.1</span>         <span class="fl">1.3</span> versicolor</span>
-<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a><span class="dv">90</span>           <span class="fl">5.5</span>         <span class="fl">2.5</span>          <span class="fl">4.0</span>         <span class="fl">1.3</span> versicolor</span>
-<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a><span class="dv">91</span>           <span class="fl">5.5</span>         <span class="fl">2.6</span>          <span class="fl">4.4</span>         <span class="fl">1.2</span> versicolor</span>
-<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a><span class="dv">92</span>           <span class="fl">6.1</span>         <span class="fl">3.0</span>          <span class="fl">4.6</span>         <span class="fl">1.4</span> versicolor</span>
-<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a><span class="dv">93</span>           <span class="fl">5.8</span>         <span class="fl">2.6</span>          <span class="fl">4.0</span>         <span class="fl">1.2</span> versicolor</span>
-<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a><span class="dv">94</span>           <span class="fl">5.0</span>         <span class="fl">2.3</span>          <span class="fl">3.3</span>         <span class="fl">1.0</span> versicolor</span>
-<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a><span class="dv">95</span>           <span class="fl">5.6</span>         <span class="fl">2.7</span>          <span class="fl">4.2</span>         <span class="fl">1.3</span> versicolor</span>
-<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a><span class="dv">96</span>           <span class="fl">5.7</span>         <span class="fl">3.0</span>          <span class="fl">4.2</span>         <span class="fl">1.2</span> versicolor</span>
-<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a><span class="dv">97</span>           <span class="fl">5.7</span>         <span class="fl">2.9</span>          <span class="fl">4.2</span>         <span class="fl">1.3</span> versicolor</span>
-<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a><span class="dv">98</span>           <span class="fl">6.2</span>         <span class="fl">2.9</span>          <span class="fl">4.3</span>         <span class="fl">1.3</span> versicolor</span>
-<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a><span class="dv">99</span>           <span class="fl">5.1</span>         <span class="fl">2.5</span>          <span class="fl">3.0</span>         <span class="fl">1.1</span> versicolor</span>
-<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a><span class="dv">100</span>          <span class="fl">5.7</span>         <span class="fl">2.8</span>          <span class="fl">4.1</span>         <span class="fl">1.3</span> versicolor</span>
-<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a><span class="dv">101</span>          <span class="fl">6.3</span>         <span class="fl">3.3</span>          <span class="fl">6.0</span>         <span class="fl">2.5</span>  virginica</span>
-<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a><span class="dv">102</span>          <span class="fl">5.8</span>         <span class="fl">2.7</span>          <span class="fl">5.1</span>         <span class="fl">1.9</span>  virginica</span>
-<span id="cb3-105"><a href="#cb3-105" aria-hidden="true" tabindex="-1"></a><span class="dv">103</span>          <span class="fl">7.1</span>         <span class="fl">3.0</span>          <span class="fl">5.9</span>         <span class="fl">2.1</span>  virginica</span>
-<span id="cb3-106"><a href="#cb3-106" aria-hidden="true" tabindex="-1"></a><span class="dv">104</span>          <span class="fl">6.3</span>         <span class="fl">2.9</span>          <span class="fl">5.6</span>         <span class="fl">1.8</span>  virginica</span>
-<span id="cb3-107"><a href="#cb3-107" aria-hidden="true" tabindex="-1"></a><span class="dv">105</span>          <span class="fl">6.5</span>         <span class="fl">3.0</span>          <span class="fl">5.8</span>         <span class="fl">2.2</span>  virginica</span>
-<span id="cb3-108"><a href="#cb3-108" aria-hidden="true" tabindex="-1"></a><span class="dv">106</span>          <span class="fl">7.6</span>         <span class="fl">3.0</span>          <span class="fl">6.6</span>         <span class="fl">2.1</span>  virginica</span>
-<span id="cb3-109"><a href="#cb3-109" aria-hidden="true" tabindex="-1"></a><span class="dv">107</span>          <span class="fl">4.9</span>         <span class="fl">2.5</span>          <span class="fl">4.5</span>         <span class="fl">1.7</span>  virginica</span>
-<span id="cb3-110"><a href="#cb3-110" aria-hidden="true" tabindex="-1"></a><span class="dv">108</span>          <span class="fl">7.3</span>         <span class="fl">2.9</span>          <span class="fl">6.3</span>         <span class="fl">1.8</span>  virginica</span>
-<span id="cb3-111"><a href="#cb3-111" aria-hidden="true" tabindex="-1"></a><span class="dv">109</span>          <span class="fl">6.7</span>         <span class="fl">2.5</span>          <span class="fl">5.8</span>         <span class="fl">1.8</span>  virginica</span>
-<span id="cb3-112"><a href="#cb3-112" aria-hidden="true" tabindex="-1"></a><span class="dv">110</span>          <span class="fl">7.2</span>         <span class="fl">3.6</span>          <span class="fl">6.1</span>         <span class="fl">2.5</span>  virginica</span>
-<span id="cb3-113"><a href="#cb3-113" aria-hidden="true" tabindex="-1"></a><span class="dv">111</span>          <span class="fl">6.5</span>         <span class="fl">3.2</span>          <span class="fl">5.1</span>         <span class="fl">2.0</span>  virginica</span>
-<span id="cb3-114"><a href="#cb3-114" aria-hidden="true" tabindex="-1"></a><span class="dv">112</span>          <span class="fl">6.4</span>         <span class="fl">2.7</span>          <span class="fl">5.3</span>         <span class="fl">1.9</span>  virginica</span>
-<span id="cb3-115"><a href="#cb3-115" aria-hidden="true" tabindex="-1"></a><span class="dv">113</span>          <span class="fl">6.8</span>         <span class="fl">3.0</span>          <span class="fl">5.5</span>         <span class="fl">2.1</span>  virginica</span>
-<span id="cb3-116"><a href="#cb3-116" aria-hidden="true" tabindex="-1"></a><span class="dv">114</span>          <span class="fl">5.7</span>         <span class="fl">2.5</span>          <span class="fl">5.0</span>         <span class="fl">2.0</span>  virginica</span>
-<span id="cb3-117"><a href="#cb3-117" aria-hidden="true" tabindex="-1"></a><span class="dv">115</span>          <span class="fl">5.8</span>         <span class="fl">2.8</span>          <span class="fl">5.1</span>         <span class="fl">2.4</span>  virginica</span>
-<span id="cb3-118"><a href="#cb3-118" aria-hidden="true" tabindex="-1"></a><span class="dv">116</span>          <span class="fl">6.4</span>         <span class="fl">3.2</span>          <span class="fl">5.3</span>         <span class="fl">2.3</span>  virginica</span>
-<span id="cb3-119"><a href="#cb3-119" aria-hidden="true" tabindex="-1"></a><span class="dv">117</span>          <span class="fl">6.5</span>         <span class="fl">3.0</span>          <span class="fl">5.5</span>         <span class="fl">1.8</span>  virginica</span>
-<span id="cb3-120"><a href="#cb3-120" aria-hidden="true" tabindex="-1"></a><span class="dv">118</span>          <span class="fl">7.7</span>         <span class="fl">3.8</span>          <span class="fl">6.7</span>         <span class="fl">2.2</span>  virginica</span>
-<span id="cb3-121"><a href="#cb3-121" aria-hidden="true" tabindex="-1"></a><span class="dv">119</span>          <span class="fl">7.7</span>         <span class="fl">2.6</span>          <span class="fl">6.9</span>         <span class="fl">2.3</span>  virginica</span>
-<span id="cb3-122"><a href="#cb3-122" aria-hidden="true" tabindex="-1"></a><span class="dv">120</span>          <span class="fl">6.0</span>         <span class="fl">2.2</span>          <span class="fl">5.0</span>         <span class="fl">1.5</span>  virginica</span>
-<span id="cb3-123"><a href="#cb3-123" aria-hidden="true" tabindex="-1"></a><span class="dv">121</span>          <span class="fl">6.9</span>         <span class="fl">3.2</span>          <span class="fl">5.7</span>         <span class="fl">2.3</span>  virginica</span>
-<span id="cb3-124"><a href="#cb3-124" aria-hidden="true" tabindex="-1"></a><span class="dv">122</span>          <span class="fl">5.6</span>         <span class="fl">2.8</span>          <span class="fl">4.9</span>         <span class="fl">2.0</span>  virginica</span>
-<span id="cb3-125"><a href="#cb3-125" aria-hidden="true" tabindex="-1"></a><span class="dv">123</span>          <span class="fl">7.7</span>         <span class="fl">2.8</span>          <span class="fl">6.7</span>         <span class="fl">2.0</span>  virginica</span>
-<span id="cb3-126"><a href="#cb3-126" aria-hidden="true" tabindex="-1"></a><span class="dv">124</span>          <span class="fl">6.3</span>         <span class="fl">2.7</span>          <span class="fl">4.9</span>         <span class="fl">1.8</span>  virginica</span>
-<span id="cb3-127"><a href="#cb3-127" aria-hidden="true" tabindex="-1"></a><span class="dv">125</span>          <span class="fl">6.7</span>         <span class="fl">3.3</span>          <span class="fl">5.7</span>         <span class="fl">2.1</span>  virginica</span>
-<span id="cb3-128"><a href="#cb3-128" aria-hidden="true" tabindex="-1"></a><span class="dv">126</span>          <span class="fl">7.2</span>         <span class="fl">3.2</span>          <span class="fl">6.0</span>         <span class="fl">1.8</span>  virginica</span>
-<span id="cb3-129"><a href="#cb3-129" aria-hidden="true" tabindex="-1"></a><span class="dv">127</span>          <span class="fl">6.2</span>         <span class="fl">2.8</span>          <span class="fl">4.8</span>         <span class="fl">1.8</span>  virginica</span>
-<span id="cb3-130"><a href="#cb3-130" aria-hidden="true" tabindex="-1"></a><span class="dv">128</span>          <span class="fl">6.1</span>         <span class="fl">3.0</span>          <span class="fl">4.9</span>         <span class="fl">1.8</span>  virginica</span>
-<span id="cb3-131"><a href="#cb3-131" aria-hidden="true" tabindex="-1"></a><span class="dv">129</span>          <span class="fl">6.4</span>         <span class="fl">2.8</span>          <span class="fl">5.6</span>         <span class="fl">2.1</span>  virginica</span>
-<span id="cb3-132"><a href="#cb3-132" aria-hidden="true" tabindex="-1"></a><span class="dv">130</span>          <span class="fl">7.2</span>         <span class="fl">3.0</span>          <span class="fl">5.8</span>         <span class="fl">1.6</span>  virginica</span>
-<span id="cb3-133"><a href="#cb3-133" aria-hidden="true" tabindex="-1"></a><span class="dv">131</span>          <span class="fl">7.4</span>         <span class="fl">2.8</span>          <span class="fl">6.1</span>         <span class="fl">1.9</span>  virginica</span>
-<span id="cb3-134"><a href="#cb3-134" aria-hidden="true" tabindex="-1"></a><span class="dv">132</span>          <span class="fl">7.9</span>         <span class="fl">3.8</span>          <span class="fl">6.4</span>         <span class="fl">2.0</span>  virginica</span>
-<span id="cb3-135"><a href="#cb3-135" aria-hidden="true" tabindex="-1"></a><span class="dv">133</span>          <span class="fl">6.4</span>         <span class="fl">2.8</span>          <span class="fl">5.6</span>         <span class="fl">2.2</span>  virginica</span>
-<span id="cb3-136"><a href="#cb3-136" aria-hidden="true" tabindex="-1"></a><span class="dv">134</span>          <span class="fl">6.3</span>         <span class="fl">2.8</span>          <span class="fl">5.1</span>         <span class="fl">1.5</span>  virginica</span>
-<span id="cb3-137"><a href="#cb3-137" aria-hidden="true" tabindex="-1"></a><span class="dv">135</span>          <span class="fl">6.1</span>         <span class="fl">2.6</span>          <span class="fl">5.6</span>         <span class="fl">1.4</span>  virginica</span>
-<span id="cb3-138"><a href="#cb3-138" aria-hidden="true" tabindex="-1"></a><span class="dv">136</span>          <span class="fl">7.7</span>         <span class="fl">3.0</span>          <span class="fl">6.1</span>         <span class="fl">2.3</span>  virginica</span>
-<span id="cb3-139"><a href="#cb3-139" aria-hidden="true" tabindex="-1"></a><span class="dv">137</span>          <span class="fl">6.3</span>         <span class="fl">3.4</span>          <span class="fl">5.6</span>         <span class="fl">2.4</span>  virginica</span>
-<span id="cb3-140"><a href="#cb3-140" aria-hidden="true" tabindex="-1"></a><span class="dv">138</span>          <span class="fl">6.4</span>         <span class="fl">3.1</span>          <span class="fl">5.5</span>         <span class="fl">1.8</span>  virginica</span>
-<span id="cb3-141"><a href="#cb3-141" aria-hidden="true" tabindex="-1"></a><span class="dv">139</span>          <span class="fl">6.0</span>         <span class="fl">3.0</span>          <span class="fl">4.8</span>         <span class="fl">1.8</span>  virginica</span>
-<span id="cb3-142"><a href="#cb3-142" aria-hidden="true" tabindex="-1"></a><span class="dv">140</span>          <span class="fl">6.9</span>         <span class="fl">3.1</span>          <span class="fl">5.4</span>         <span class="fl">2.1</span>  virginica</span>
-<span id="cb3-143"><a href="#cb3-143" aria-hidden="true" tabindex="-1"></a><span class="dv">141</span>          <span class="fl">6.7</span>         <span class="fl">3.1</span>          <span class="fl">5.6</span>         <span class="fl">2.4</span>  virginica</span>
-<span id="cb3-144"><a href="#cb3-144" aria-hidden="true" tabindex="-1"></a><span class="dv">142</span>          <span class="fl">6.9</span>         <span class="fl">3.1</span>          <span class="fl">5.1</span>         <span class="fl">2.3</span>  virginica</span>
-<span id="cb3-145"><a href="#cb3-145" aria-hidden="true" tabindex="-1"></a><span class="dv">143</span>          <span class="fl">5.8</span>         <span class="fl">2.7</span>          <span class="fl">5.1</span>         <span class="fl">1.9</span>  virginica</span>
-<span id="cb3-146"><a href="#cb3-146" aria-hidden="true" tabindex="-1"></a><span class="dv">144</span>          <span class="fl">6.8</span>         <span class="fl">3.2</span>          <span class="fl">5.9</span>         <span class="fl">2.3</span>  virginica</span>
-<span id="cb3-147"><a href="#cb3-147" aria-hidden="true" tabindex="-1"></a><span class="dv">145</span>          <span class="fl">6.7</span>         <span class="fl">3.3</span>          <span class="fl">5.7</span>         <span class="fl">2.5</span>  virginica</span>
-<span id="cb3-148"><a href="#cb3-148" aria-hidden="true" tabindex="-1"></a><span class="dv">146</span>          <span class="fl">6.7</span>         <span class="fl">3.0</span>          <span class="fl">5.2</span>         <span class="fl">2.3</span>  virginica</span>
-<span id="cb3-149"><a href="#cb3-149" aria-hidden="true" tabindex="-1"></a><span class="dv">147</span>          <span class="fl">6.3</span>         <span class="fl">2.5</span>          <span class="fl">5.0</span>         <span class="fl">1.9</span>  virginica</span>
-<span id="cb3-150"><a href="#cb3-150" aria-hidden="true" tabindex="-1"></a><span class="dv">148</span>          <span class="fl">6.5</span>         <span class="fl">3.0</span>          <span class="fl">5.2</span>         <span class="fl">2.0</span>  virginica</span>
-<span id="cb3-151"><a href="#cb3-151" aria-hidden="true" tabindex="-1"></a><span class="dv">149</span>          <span class="fl">6.2</span>         <span class="fl">3.4</span>          <span class="fl">5.4</span>         <span class="fl">2.3</span>  virginica</span>
-<span id="cb3-152"><a href="#cb3-152" aria-hidden="true" tabindex="-1"></a><span class="dv">150</span>          <span class="fl">5.9</span>         <span class="fl">3.0</span>          <span class="fl">5.1</span>         <span class="fl">1.8</span>  virginica</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>    Sepal.Length Sepal.Width Petal.Length Petal.Width    Species</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="dv">1</span>            <span class="fl">5.1</span>         <span class="fl">3.5</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span>     setosa</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="dv">2</span>            <span class="fl">4.9</span>         <span class="fl">3.0</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span>     setosa</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="dv">3</span>            <span class="fl">4.7</span>         <span class="fl">3.2</span>          <span class="fl">1.3</span>         <span class="fl">0.2</span>     setosa</span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="dv">4</span>            <span class="fl">4.6</span>         <span class="fl">3.1</span>          <span class="fl">1.5</span>         <span class="fl">0.2</span>     setosa</span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="dv">5</span>            <span class="fl">5.0</span>         <span class="fl">3.6</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span>     setosa</span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="dv">6</span>            <span class="fl">5.4</span>         <span class="fl">3.9</span>          <span class="fl">1.7</span>         <span class="fl">0.4</span>     setosa</span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="dv">7</span>            <span class="fl">4.6</span>         <span class="fl">3.4</span>          <span class="fl">1.4</span>         <span class="fl">0.3</span>     setosa</span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="dv">8</span>            <span class="fl">5.0</span>         <span class="fl">3.4</span>          <span class="fl">1.5</span>         <span class="fl">0.2</span>     setosa</span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="dv">9</span>            <span class="fl">4.4</span>         <span class="fl">2.9</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span>     setosa</span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="dv">10</span>           <span class="fl">4.9</span>         <span class="fl">3.1</span>          <span class="fl">1.5</span>         <span class="fl">0.1</span>     setosa</span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="dv">11</span>           <span class="fl">5.4</span>         <span class="fl">3.7</span>          <span class="fl">1.5</span>         <span class="fl">0.2</span>     setosa</span>
+<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a><span class="dv">12</span>           <span class="fl">4.8</span>         <span class="fl">3.4</span>          <span class="fl">1.6</span>         <span class="fl">0.2</span>     setosa</span>
+<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a><span class="dv">13</span>           <span class="fl">4.8</span>         <span class="fl">3.0</span>          <span class="fl">1.4</span>         <span class="fl">0.1</span>     setosa</span>
+<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a><span class="dv">14</span>           <span class="fl">4.3</span>         <span class="fl">3.0</span>          <span class="fl">1.1</span>         <span class="fl">0.1</span>     setosa</span>
+<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a><span class="dv">15</span>           <span class="fl">5.8</span>         <span class="fl">4.0</span>          <span class="fl">1.2</span>         <span class="fl">0.2</span>     setosa</span>
+<span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a><span class="dv">16</span>           <span class="fl">5.7</span>         <span class="fl">4.4</span>          <span class="fl">1.5</span>         <span class="fl">0.4</span>     setosa</span>
+<span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a><span class="dv">17</span>           <span class="fl">5.4</span>         <span class="fl">3.9</span>          <span class="fl">1.3</span>         <span class="fl">0.4</span>     setosa</span>
+<span id="cb3-20"><a href="#cb3-20" tabindex="-1"></a><span class="dv">18</span>           <span class="fl">5.1</span>         <span class="fl">3.5</span>          <span class="fl">1.4</span>         <span class="fl">0.3</span>     setosa</span>
+<span id="cb3-21"><a href="#cb3-21" tabindex="-1"></a><span class="dv">19</span>           <span class="fl">5.7</span>         <span class="fl">3.8</span>          <span class="fl">1.7</span>         <span class="fl">0.3</span>     setosa</span>
+<span id="cb3-22"><a href="#cb3-22" tabindex="-1"></a><span class="dv">20</span>           <span class="fl">5.1</span>         <span class="fl">3.8</span>          <span class="fl">1.5</span>         <span class="fl">0.3</span>     setosa</span>
+<span id="cb3-23"><a href="#cb3-23" tabindex="-1"></a><span class="dv">21</span>           <span class="fl">5.4</span>         <span class="fl">3.4</span>          <span class="fl">1.7</span>         <span class="fl">0.2</span>     setosa</span>
+<span id="cb3-24"><a href="#cb3-24" tabindex="-1"></a><span class="dv">22</span>           <span class="fl">5.1</span>         <span class="fl">3.7</span>          <span class="fl">1.5</span>         <span class="fl">0.4</span>     setosa</span>
+<span id="cb3-25"><a href="#cb3-25" tabindex="-1"></a><span class="dv">23</span>           <span class="fl">4.6</span>         <span class="fl">3.6</span>          <span class="fl">1.0</span>         <span class="fl">0.2</span>     setosa</span>
+<span id="cb3-26"><a href="#cb3-26" tabindex="-1"></a><span class="dv">24</span>           <span class="fl">5.1</span>         <span class="fl">3.3</span>          <span class="fl">1.7</span>         <span class="fl">0.5</span>     setosa</span>
+<span id="cb3-27"><a href="#cb3-27" tabindex="-1"></a><span class="dv">25</span>           <span class="fl">4.8</span>         <span class="fl">3.4</span>          <span class="fl">1.9</span>         <span class="fl">0.2</span>     setosa</span>
+<span id="cb3-28"><a href="#cb3-28" tabindex="-1"></a><span class="dv">26</span>           <span class="fl">5.0</span>         <span class="fl">3.0</span>          <span class="fl">1.6</span>         <span class="fl">0.2</span>     setosa</span>
+<span id="cb3-29"><a href="#cb3-29" tabindex="-1"></a><span class="dv">27</span>           <span class="fl">5.0</span>         <span class="fl">3.4</span>          <span class="fl">1.6</span>         <span class="fl">0.4</span>     setosa</span>
+<span id="cb3-30"><a href="#cb3-30" tabindex="-1"></a><span class="dv">28</span>           <span class="fl">5.2</span>         <span class="fl">3.5</span>          <span class="fl">1.5</span>         <span class="fl">0.2</span>     setosa</span>
+<span id="cb3-31"><a href="#cb3-31" tabindex="-1"></a><span class="dv">29</span>           <span class="fl">5.2</span>         <span class="fl">3.4</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span>     setosa</span>
+<span id="cb3-32"><a href="#cb3-32" tabindex="-1"></a><span class="dv">30</span>           <span class="fl">4.7</span>         <span class="fl">3.2</span>          <span class="fl">1.6</span>         <span class="fl">0.2</span>     setosa</span>
+<span id="cb3-33"><a href="#cb3-33" tabindex="-1"></a><span class="dv">31</span>           <span class="fl">4.8</span>         <span class="fl">3.1</span>          <span class="fl">1.6</span>         <span class="fl">0.2</span>     setosa</span>
+<span id="cb3-34"><a href="#cb3-34" tabindex="-1"></a><span class="dv">32</span>           <span class="fl">5.4</span>         <span class="fl">3.4</span>          <span class="fl">1.5</span>         <span class="fl">0.4</span>     setosa</span>
+<span id="cb3-35"><a href="#cb3-35" tabindex="-1"></a><span class="dv">33</span>           <span class="fl">5.2</span>         <span class="fl">4.1</span>          <span class="fl">1.5</span>         <span class="fl">0.1</span>     setosa</span>
+<span id="cb3-36"><a href="#cb3-36" tabindex="-1"></a><span class="dv">34</span>           <span class="fl">5.5</span>         <span class="fl">4.2</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span>     setosa</span>
+<span id="cb3-37"><a href="#cb3-37" tabindex="-1"></a><span class="dv">35</span>           <span class="fl">4.9</span>         <span class="fl">3.1</span>          <span class="fl">1.5</span>         <span class="fl">0.2</span>     setosa</span>
+<span id="cb3-38"><a href="#cb3-38" tabindex="-1"></a><span class="dv">36</span>           <span class="fl">5.0</span>         <span class="fl">3.2</span>          <span class="fl">1.2</span>         <span class="fl">0.2</span>     setosa</span>
+<span id="cb3-39"><a href="#cb3-39" tabindex="-1"></a><span class="dv">37</span>           <span class="fl">5.5</span>         <span class="fl">3.5</span>          <span class="fl">1.3</span>         <span class="fl">0.2</span>     setosa</span>
+<span id="cb3-40"><a href="#cb3-40" tabindex="-1"></a><span class="dv">38</span>           <span class="fl">4.9</span>         <span class="fl">3.6</span>          <span class="fl">1.4</span>         <span class="fl">0.1</span>     setosa</span>
+<span id="cb3-41"><a href="#cb3-41" tabindex="-1"></a><span class="dv">39</span>           <span class="fl">4.4</span>         <span class="fl">3.0</span>          <span class="fl">1.3</span>         <span class="fl">0.2</span>     setosa</span>
+<span id="cb3-42"><a href="#cb3-42" tabindex="-1"></a><span class="dv">40</span>           <span class="fl">5.1</span>         <span class="fl">3.4</span>          <span class="fl">1.5</span>         <span class="fl">0.2</span>     setosa</span>
+<span id="cb3-43"><a href="#cb3-43" tabindex="-1"></a><span class="dv">41</span>           <span class="fl">5.0</span>         <span class="fl">3.5</span>          <span class="fl">1.3</span>         <span class="fl">0.3</span>     setosa</span>
+<span id="cb3-44"><a href="#cb3-44" tabindex="-1"></a><span class="dv">42</span>           <span class="fl">4.5</span>         <span class="fl">2.3</span>          <span class="fl">1.3</span>         <span class="fl">0.3</span>     setosa</span>
+<span id="cb3-45"><a href="#cb3-45" tabindex="-1"></a><span class="dv">43</span>           <span class="fl">4.4</span>         <span class="fl">3.2</span>          <span class="fl">1.3</span>         <span class="fl">0.2</span>     setosa</span>
+<span id="cb3-46"><a href="#cb3-46" tabindex="-1"></a><span class="dv">44</span>           <span class="fl">5.0</span>         <span class="fl">3.5</span>          <span class="fl">1.6</span>         <span class="fl">0.6</span>     setosa</span>
+<span id="cb3-47"><a href="#cb3-47" tabindex="-1"></a><span class="dv">45</span>           <span class="fl">5.1</span>         <span class="fl">3.8</span>          <span class="fl">1.9</span>         <span class="fl">0.4</span>     setosa</span>
+<span id="cb3-48"><a href="#cb3-48" tabindex="-1"></a><span class="dv">46</span>           <span class="fl">4.8</span>         <span class="fl">3.0</span>          <span class="fl">1.4</span>         <span class="fl">0.3</span>     setosa</span>
+<span id="cb3-49"><a href="#cb3-49" tabindex="-1"></a><span class="dv">47</span>           <span class="fl">5.1</span>         <span class="fl">3.8</span>          <span class="fl">1.6</span>         <span class="fl">0.2</span>     setosa</span>
+<span id="cb3-50"><a href="#cb3-50" tabindex="-1"></a><span class="dv">48</span>           <span class="fl">4.6</span>         <span class="fl">3.2</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span>     setosa</span>
+<span id="cb3-51"><a href="#cb3-51" tabindex="-1"></a><span class="dv">49</span>           <span class="fl">5.3</span>         <span class="fl">3.7</span>          <span class="fl">1.5</span>         <span class="fl">0.2</span>     setosa</span>
+<span id="cb3-52"><a href="#cb3-52" tabindex="-1"></a><span class="dv">50</span>           <span class="fl">5.0</span>         <span class="fl">3.3</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span>     setosa</span>
+<span id="cb3-53"><a href="#cb3-53" tabindex="-1"></a><span class="dv">51</span>           <span class="fl">7.0</span>         <span class="fl">3.2</span>          <span class="fl">4.7</span>         <span class="fl">1.4</span> versicolor</span>
+<span id="cb3-54"><a href="#cb3-54" tabindex="-1"></a><span class="dv">52</span>           <span class="fl">6.4</span>         <span class="fl">3.2</span>          <span class="fl">4.5</span>         <span class="fl">1.5</span> versicolor</span>
+<span id="cb3-55"><a href="#cb3-55" tabindex="-1"></a><span class="dv">53</span>           <span class="fl">6.9</span>         <span class="fl">3.1</span>          <span class="fl">4.9</span>         <span class="fl">1.5</span> versicolor</span>
+<span id="cb3-56"><a href="#cb3-56" tabindex="-1"></a><span class="dv">54</span>           <span class="fl">5.5</span>         <span class="fl">2.3</span>          <span class="fl">4.0</span>         <span class="fl">1.3</span> versicolor</span>
+<span id="cb3-57"><a href="#cb3-57" tabindex="-1"></a><span class="dv">55</span>           <span class="fl">6.5</span>         <span class="fl">2.8</span>          <span class="fl">4.6</span>         <span class="fl">1.5</span> versicolor</span>
+<span id="cb3-58"><a href="#cb3-58" tabindex="-1"></a><span class="dv">56</span>           <span class="fl">5.7</span>         <span class="fl">2.8</span>          <span class="fl">4.5</span>         <span class="fl">1.3</span> versicolor</span>
+<span id="cb3-59"><a href="#cb3-59" tabindex="-1"></a><span class="dv">57</span>           <span class="fl">6.3</span>         <span class="fl">3.3</span>          <span class="fl">4.7</span>         <span class="fl">1.6</span> versicolor</span>
+<span id="cb3-60"><a href="#cb3-60" tabindex="-1"></a><span class="dv">58</span>           <span class="fl">4.9</span>         <span class="fl">2.4</span>          <span class="fl">3.3</span>         <span class="fl">1.0</span> versicolor</span>
+<span id="cb3-61"><a href="#cb3-61" tabindex="-1"></a><span class="dv">59</span>           <span class="fl">6.6</span>         <span class="fl">2.9</span>          <span class="fl">4.6</span>         <span class="fl">1.3</span> versicolor</span>
+<span id="cb3-62"><a href="#cb3-62" tabindex="-1"></a><span class="dv">60</span>           <span class="fl">5.2</span>         <span class="fl">2.7</span>          <span class="fl">3.9</span>         <span class="fl">1.4</span> versicolor</span>
+<span id="cb3-63"><a href="#cb3-63" tabindex="-1"></a><span class="dv">61</span>           <span class="fl">5.0</span>         <span class="fl">2.0</span>          <span class="fl">3.5</span>         <span class="fl">1.0</span> versicolor</span>
+<span id="cb3-64"><a href="#cb3-64" tabindex="-1"></a><span class="dv">62</span>           <span class="fl">5.9</span>         <span class="fl">3.0</span>          <span class="fl">4.2</span>         <span class="fl">1.5</span> versicolor</span>
+<span id="cb3-65"><a href="#cb3-65" tabindex="-1"></a><span class="dv">63</span>           <span class="fl">6.0</span>         <span class="fl">2.2</span>          <span class="fl">4.0</span>         <span class="fl">1.0</span> versicolor</span>
+<span id="cb3-66"><a href="#cb3-66" tabindex="-1"></a><span class="dv">64</span>           <span class="fl">6.1</span>         <span class="fl">2.9</span>          <span class="fl">4.7</span>         <span class="fl">1.4</span> versicolor</span>
+<span id="cb3-67"><a href="#cb3-67" tabindex="-1"></a><span class="dv">65</span>           <span class="fl">5.6</span>         <span class="fl">2.9</span>          <span class="fl">3.6</span>         <span class="fl">1.3</span> versicolor</span>
+<span id="cb3-68"><a href="#cb3-68" tabindex="-1"></a><span class="dv">66</span>           <span class="fl">6.7</span>         <span class="fl">3.1</span>          <span class="fl">4.4</span>         <span class="fl">1.4</span> versicolor</span>
+<span id="cb3-69"><a href="#cb3-69" tabindex="-1"></a><span class="dv">67</span>           <span class="fl">5.6</span>         <span class="fl">3.0</span>          <span class="fl">4.5</span>         <span class="fl">1.5</span> versicolor</span>
+<span id="cb3-70"><a href="#cb3-70" tabindex="-1"></a><span class="dv">68</span>           <span class="fl">5.8</span>         <span class="fl">2.7</span>          <span class="fl">4.1</span>         <span class="fl">1.0</span> versicolor</span>
+<span id="cb3-71"><a href="#cb3-71" tabindex="-1"></a><span class="dv">69</span>           <span class="fl">6.2</span>         <span class="fl">2.2</span>          <span class="fl">4.5</span>         <span class="fl">1.5</span> versicolor</span>
+<span id="cb3-72"><a href="#cb3-72" tabindex="-1"></a><span class="dv">70</span>           <span class="fl">5.6</span>         <span class="fl">2.5</span>          <span class="fl">3.9</span>         <span class="fl">1.1</span> versicolor</span>
+<span id="cb3-73"><a href="#cb3-73" tabindex="-1"></a><span class="dv">71</span>           <span class="fl">5.9</span>         <span class="fl">3.2</span>          <span class="fl">4.8</span>         <span class="fl">1.8</span> versicolor</span>
+<span id="cb3-74"><a href="#cb3-74" tabindex="-1"></a><span class="dv">72</span>           <span class="fl">6.1</span>         <span class="fl">2.8</span>          <span class="fl">4.0</span>         <span class="fl">1.3</span> versicolor</span>
+<span id="cb3-75"><a href="#cb3-75" tabindex="-1"></a><span class="dv">73</span>           <span class="fl">6.3</span>         <span class="fl">2.5</span>          <span class="fl">4.9</span>         <span class="fl">1.5</span> versicolor</span>
+<span id="cb3-76"><a href="#cb3-76" tabindex="-1"></a><span class="dv">74</span>           <span class="fl">6.1</span>         <span class="fl">2.8</span>          <span class="fl">4.7</span>         <span class="fl">1.2</span> versicolor</span>
+<span id="cb3-77"><a href="#cb3-77" tabindex="-1"></a><span class="dv">75</span>           <span class="fl">6.4</span>         <span class="fl">2.9</span>          <span class="fl">4.3</span>         <span class="fl">1.3</span> versicolor</span>
+<span id="cb3-78"><a href="#cb3-78" tabindex="-1"></a><span class="dv">76</span>           <span class="fl">6.6</span>         <span class="fl">3.0</span>          <span class="fl">4.4</span>         <span class="fl">1.4</span> versicolor</span>
+<span id="cb3-79"><a href="#cb3-79" tabindex="-1"></a><span class="dv">77</span>           <span class="fl">6.8</span>         <span class="fl">2.8</span>          <span class="fl">4.8</span>         <span class="fl">1.4</span> versicolor</span>
+<span id="cb3-80"><a href="#cb3-80" tabindex="-1"></a><span class="dv">78</span>           <span class="fl">6.7</span>         <span class="fl">3.0</span>          <span class="fl">5.0</span>         <span class="fl">1.7</span> versicolor</span>
+<span id="cb3-81"><a href="#cb3-81" tabindex="-1"></a><span class="dv">79</span>           <span class="fl">6.0</span>         <span class="fl">2.9</span>          <span class="fl">4.5</span>         <span class="fl">1.5</span> versicolor</span>
+<span id="cb3-82"><a href="#cb3-82" tabindex="-1"></a><span class="dv">80</span>           <span class="fl">5.7</span>         <span class="fl">2.6</span>          <span class="fl">3.5</span>         <span class="fl">1.0</span> versicolor</span>
+<span id="cb3-83"><a href="#cb3-83" tabindex="-1"></a><span class="dv">81</span>           <span class="fl">5.5</span>         <span class="fl">2.4</span>          <span class="fl">3.8</span>         <span class="fl">1.1</span> versicolor</span>
+<span id="cb3-84"><a href="#cb3-84" tabindex="-1"></a><span class="dv">82</span>           <span class="fl">5.5</span>         <span class="fl">2.4</span>          <span class="fl">3.7</span>         <span class="fl">1.0</span> versicolor</span>
+<span id="cb3-85"><a href="#cb3-85" tabindex="-1"></a><span class="dv">83</span>           <span class="fl">5.8</span>         <span class="fl">2.7</span>          <span class="fl">3.9</span>         <span class="fl">1.2</span> versicolor</span>
+<span id="cb3-86"><a href="#cb3-86" tabindex="-1"></a><span class="dv">84</span>           <span class="fl">6.0</span>         <span class="fl">2.7</span>          <span class="fl">5.1</span>         <span class="fl">1.6</span> versicolor</span>
+<span id="cb3-87"><a href="#cb3-87" tabindex="-1"></a><span class="dv">85</span>           <span class="fl">5.4</span>         <span class="fl">3.0</span>          <span class="fl">4.5</span>         <span class="fl">1.5</span> versicolor</span>
+<span id="cb3-88"><a href="#cb3-88" tabindex="-1"></a><span class="dv">86</span>           <span class="fl">6.0</span>         <span class="fl">3.4</span>          <span class="fl">4.5</span>         <span class="fl">1.6</span> versicolor</span>
+<span id="cb3-89"><a href="#cb3-89" tabindex="-1"></a><span class="dv">87</span>           <span class="fl">6.7</span>         <span class="fl">3.1</span>          <span class="fl">4.7</span>         <span class="fl">1.5</span> versicolor</span>
+<span id="cb3-90"><a href="#cb3-90" tabindex="-1"></a><span class="dv">88</span>           <span class="fl">6.3</span>         <span class="fl">2.3</span>          <span class="fl">4.4</span>         <span class="fl">1.3</span> versicolor</span>
+<span id="cb3-91"><a href="#cb3-91" tabindex="-1"></a><span class="dv">89</span>           <span class="fl">5.6</span>         <span class="fl">3.0</span>          <span class="fl">4.1</span>         <span class="fl">1.3</span> versicolor</span>
+<span id="cb3-92"><a href="#cb3-92" tabindex="-1"></a><span class="dv">90</span>           <span class="fl">5.5</span>         <span class="fl">2.5</span>          <span class="fl">4.0</span>         <span class="fl">1.3</span> versicolor</span>
+<span id="cb3-93"><a href="#cb3-93" tabindex="-1"></a><span class="dv">91</span>           <span class="fl">5.5</span>         <span class="fl">2.6</span>          <span class="fl">4.4</span>         <span class="fl">1.2</span> versicolor</span>
+<span id="cb3-94"><a href="#cb3-94" tabindex="-1"></a><span class="dv">92</span>           <span class="fl">6.1</span>         <span class="fl">3.0</span>          <span class="fl">4.6</span>         <span class="fl">1.4</span> versicolor</span>
+<span id="cb3-95"><a href="#cb3-95" tabindex="-1"></a><span class="dv">93</span>           <span class="fl">5.8</span>         <span class="fl">2.6</span>          <span class="fl">4.0</span>         <span class="fl">1.2</span> versicolor</span>
+<span id="cb3-96"><a href="#cb3-96" tabindex="-1"></a><span class="dv">94</span>           <span class="fl">5.0</span>         <span class="fl">2.3</span>          <span class="fl">3.3</span>         <span class="fl">1.0</span> versicolor</span>
+<span id="cb3-97"><a href="#cb3-97" tabindex="-1"></a><span class="dv">95</span>           <span class="fl">5.6</span>         <span class="fl">2.7</span>          <span class="fl">4.2</span>         <span class="fl">1.3</span> versicolor</span>
+<span id="cb3-98"><a href="#cb3-98" tabindex="-1"></a><span class="dv">96</span>           <span class="fl">5.7</span>         <span class="fl">3.0</span>          <span class="fl">4.2</span>         <span class="fl">1.2</span> versicolor</span>
+<span id="cb3-99"><a href="#cb3-99" tabindex="-1"></a><span class="dv">97</span>           <span class="fl">5.7</span>         <span class="fl">2.9</span>          <span class="fl">4.2</span>         <span class="fl">1.3</span> versicolor</span>
+<span id="cb3-100"><a href="#cb3-100" tabindex="-1"></a><span class="dv">98</span>           <span class="fl">6.2</span>         <span class="fl">2.9</span>          <span class="fl">4.3</span>         <span class="fl">1.3</span> versicolor</span>
+<span id="cb3-101"><a href="#cb3-101" tabindex="-1"></a><span class="dv">99</span>           <span class="fl">5.1</span>         <span class="fl">2.5</span>          <span class="fl">3.0</span>         <span class="fl">1.1</span> versicolor</span>
+<span id="cb3-102"><a href="#cb3-102" tabindex="-1"></a><span class="dv">100</span>          <span class="fl">5.7</span>         <span class="fl">2.8</span>          <span class="fl">4.1</span>         <span class="fl">1.3</span> versicolor</span>
+<span id="cb3-103"><a href="#cb3-103" tabindex="-1"></a><span class="dv">101</span>          <span class="fl">6.3</span>         <span class="fl">3.3</span>          <span class="fl">6.0</span>         <span class="fl">2.5</span>  virginica</span>
+<span id="cb3-104"><a href="#cb3-104" tabindex="-1"></a><span class="dv">102</span>          <span class="fl">5.8</span>         <span class="fl">2.7</span>          <span class="fl">5.1</span>         <span class="fl">1.9</span>  virginica</span>
+<span id="cb3-105"><a href="#cb3-105" tabindex="-1"></a><span class="dv">103</span>          <span class="fl">7.1</span>         <span class="fl">3.0</span>          <span class="fl">5.9</span>         <span class="fl">2.1</span>  virginica</span>
+<span id="cb3-106"><a href="#cb3-106" tabindex="-1"></a><span class="dv">104</span>          <span class="fl">6.3</span>         <span class="fl">2.9</span>          <span class="fl">5.6</span>         <span class="fl">1.8</span>  virginica</span>
+<span id="cb3-107"><a href="#cb3-107" tabindex="-1"></a><span class="dv">105</span>          <span class="fl">6.5</span>         <span class="fl">3.0</span>          <span class="fl">5.8</span>         <span class="fl">2.2</span>  virginica</span>
+<span id="cb3-108"><a href="#cb3-108" tabindex="-1"></a><span class="dv">106</span>          <span class="fl">7.6</span>         <span class="fl">3.0</span>          <span class="fl">6.6</span>         <span class="fl">2.1</span>  virginica</span>
+<span id="cb3-109"><a href="#cb3-109" tabindex="-1"></a><span class="dv">107</span>          <span class="fl">4.9</span>         <span class="fl">2.5</span>          <span class="fl">4.5</span>         <span class="fl">1.7</span>  virginica</span>
+<span id="cb3-110"><a href="#cb3-110" tabindex="-1"></a><span class="dv">108</span>          <span class="fl">7.3</span>         <span class="fl">2.9</span>          <span class="fl">6.3</span>         <span class="fl">1.8</span>  virginica</span>
+<span id="cb3-111"><a href="#cb3-111" tabindex="-1"></a><span class="dv">109</span>          <span class="fl">6.7</span>         <span class="fl">2.5</span>          <span class="fl">5.8</span>         <span class="fl">1.8</span>  virginica</span>
+<span id="cb3-112"><a href="#cb3-112" tabindex="-1"></a><span class="dv">110</span>          <span class="fl">7.2</span>         <span class="fl">3.6</span>          <span class="fl">6.1</span>         <span class="fl">2.5</span>  virginica</span>
+<span id="cb3-113"><a href="#cb3-113" tabindex="-1"></a><span class="dv">111</span>          <span class="fl">6.5</span>         <span class="fl">3.2</span>          <span class="fl">5.1</span>         <span class="fl">2.0</span>  virginica</span>
+<span id="cb3-114"><a href="#cb3-114" tabindex="-1"></a><span class="dv">112</span>          <span class="fl">6.4</span>         <span class="fl">2.7</span>          <span class="fl">5.3</span>         <span class="fl">1.9</span>  virginica</span>
+<span id="cb3-115"><a href="#cb3-115" tabindex="-1"></a><span class="dv">113</span>          <span class="fl">6.8</span>         <span class="fl">3.0</span>          <span class="fl">5.5</span>         <span class="fl">2.1</span>  virginica</span>
+<span id="cb3-116"><a href="#cb3-116" tabindex="-1"></a><span class="dv">114</span>          <span class="fl">5.7</span>         <span class="fl">2.5</span>          <span class="fl">5.0</span>         <span class="fl">2.0</span>  virginica</span>
+<span id="cb3-117"><a href="#cb3-117" tabindex="-1"></a><span class="dv">115</span>          <span class="fl">5.8</span>         <span class="fl">2.8</span>          <span class="fl">5.1</span>         <span class="fl">2.4</span>  virginica</span>
+<span id="cb3-118"><a href="#cb3-118" tabindex="-1"></a><span class="dv">116</span>          <span class="fl">6.4</span>         <span class="fl">3.2</span>          <span class="fl">5.3</span>         <span class="fl">2.3</span>  virginica</span>
+<span id="cb3-119"><a href="#cb3-119" tabindex="-1"></a><span class="dv">117</span>          <span class="fl">6.5</span>         <span class="fl">3.0</span>          <span class="fl">5.5</span>         <span class="fl">1.8</span>  virginica</span>
+<span id="cb3-120"><a href="#cb3-120" tabindex="-1"></a><span class="dv">118</span>          <span class="fl">7.7</span>         <span class="fl">3.8</span>          <span class="fl">6.7</span>         <span class="fl">2.2</span>  virginica</span>
+<span id="cb3-121"><a href="#cb3-121" tabindex="-1"></a><span class="dv">119</span>          <span class="fl">7.7</span>         <span class="fl">2.6</span>          <span class="fl">6.9</span>         <span class="fl">2.3</span>  virginica</span>
+<span id="cb3-122"><a href="#cb3-122" tabindex="-1"></a><span class="dv">120</span>          <span class="fl">6.0</span>         <span class="fl">2.2</span>          <span class="fl">5.0</span>         <span class="fl">1.5</span>  virginica</span>
+<span id="cb3-123"><a href="#cb3-123" tabindex="-1"></a><span class="dv">121</span>          <span class="fl">6.9</span>         <span class="fl">3.2</span>          <span class="fl">5.7</span>         <span class="fl">2.3</span>  virginica</span>
+<span id="cb3-124"><a href="#cb3-124" tabindex="-1"></a><span class="dv">122</span>          <span class="fl">5.6</span>         <span class="fl">2.8</span>          <span class="fl">4.9</span>         <span class="fl">2.0</span>  virginica</span>
+<span id="cb3-125"><a href="#cb3-125" tabindex="-1"></a><span class="dv">123</span>          <span class="fl">7.7</span>         <span class="fl">2.8</span>          <span class="fl">6.7</span>         <span class="fl">2.0</span>  virginica</span>
+<span id="cb3-126"><a href="#cb3-126" tabindex="-1"></a><span class="dv">124</span>          <span class="fl">6.3</span>         <span class="fl">2.7</span>          <span class="fl">4.9</span>         <span class="fl">1.8</span>  virginica</span>
+<span id="cb3-127"><a href="#cb3-127" tabindex="-1"></a><span class="dv">125</span>          <span class="fl">6.7</span>         <span class="fl">3.3</span>          <span class="fl">5.7</span>         <span class="fl">2.1</span>  virginica</span>
+<span id="cb3-128"><a href="#cb3-128" tabindex="-1"></a><span class="dv">126</span>          <span class="fl">7.2</span>         <span class="fl">3.2</span>          <span class="fl">6.0</span>         <span class="fl">1.8</span>  virginica</span>
+<span id="cb3-129"><a href="#cb3-129" tabindex="-1"></a><span class="dv">127</span>          <span class="fl">6.2</span>         <span class="fl">2.8</span>          <span class="fl">4.8</span>         <span class="fl">1.8</span>  virginica</span>
+<span id="cb3-130"><a href="#cb3-130" tabindex="-1"></a><span class="dv">128</span>          <span class="fl">6.1</span>         <span class="fl">3.0</span>          <span class="fl">4.9</span>         <span class="fl">1.8</span>  virginica</span>
+<span id="cb3-131"><a href="#cb3-131" tabindex="-1"></a><span class="dv">129</span>          <span class="fl">6.4</span>         <span class="fl">2.8</span>          <span class="fl">5.6</span>         <span class="fl">2.1</span>  virginica</span>
+<span id="cb3-132"><a href="#cb3-132" tabindex="-1"></a><span class="dv">130</span>          <span class="fl">7.2</span>         <span class="fl">3.0</span>          <span class="fl">5.8</span>         <span class="fl">1.6</span>  virginica</span>
+<span id="cb3-133"><a href="#cb3-133" tabindex="-1"></a><span class="dv">131</span>          <span class="fl">7.4</span>         <span class="fl">2.8</span>          <span class="fl">6.1</span>         <span class="fl">1.9</span>  virginica</span>
+<span id="cb3-134"><a href="#cb3-134" tabindex="-1"></a><span class="dv">132</span>          <span class="fl">7.9</span>         <span class="fl">3.8</span>          <span class="fl">6.4</span>         <span class="fl">2.0</span>  virginica</span>
+<span id="cb3-135"><a href="#cb3-135" tabindex="-1"></a><span class="dv">133</span>          <span class="fl">6.4</span>         <span class="fl">2.8</span>          <span class="fl">5.6</span>         <span class="fl">2.2</span>  virginica</span>
+<span id="cb3-136"><a href="#cb3-136" tabindex="-1"></a><span class="dv">134</span>          <span class="fl">6.3</span>         <span class="fl">2.8</span>          <span class="fl">5.1</span>         <span class="fl">1.5</span>  virginica</span>
+<span id="cb3-137"><a href="#cb3-137" tabindex="-1"></a><span class="dv">135</span>          <span class="fl">6.1</span>         <span class="fl">2.6</span>          <span class="fl">5.6</span>         <span class="fl">1.4</span>  virginica</span>
+<span id="cb3-138"><a href="#cb3-138" tabindex="-1"></a><span class="dv">136</span>          <span class="fl">7.7</span>         <span class="fl">3.0</span>          <span class="fl">6.1</span>         <span class="fl">2.3</span>  virginica</span>
+<span id="cb3-139"><a href="#cb3-139" tabindex="-1"></a><span class="dv">137</span>          <span class="fl">6.3</span>         <span class="fl">3.4</span>          <span class="fl">5.6</span>         <span class="fl">2.4</span>  virginica</span>
+<span id="cb3-140"><a href="#cb3-140" tabindex="-1"></a><span class="dv">138</span>          <span class="fl">6.4</span>         <span class="fl">3.1</span>          <span class="fl">5.5</span>         <span class="fl">1.8</span>  virginica</span>
+<span id="cb3-141"><a href="#cb3-141" tabindex="-1"></a><span class="dv">139</span>          <span class="fl">6.0</span>         <span class="fl">3.0</span>          <span class="fl">4.8</span>         <span class="fl">1.8</span>  virginica</span>
+<span id="cb3-142"><a href="#cb3-142" tabindex="-1"></a><span class="dv">140</span>          <span class="fl">6.9</span>         <span class="fl">3.1</span>          <span class="fl">5.4</span>         <span class="fl">2.1</span>  virginica</span>
+<span id="cb3-143"><a href="#cb3-143" tabindex="-1"></a><span class="dv">141</span>          <span class="fl">6.7</span>         <span class="fl">3.1</span>          <span class="fl">5.6</span>         <span class="fl">2.4</span>  virginica</span>
+<span id="cb3-144"><a href="#cb3-144" tabindex="-1"></a><span class="dv">142</span>          <span class="fl">6.9</span>         <span class="fl">3.1</span>          <span class="fl">5.1</span>         <span class="fl">2.3</span>  virginica</span>
+<span id="cb3-145"><a href="#cb3-145" tabindex="-1"></a><span class="dv">143</span>          <span class="fl">5.8</span>         <span class="fl">2.7</span>          <span class="fl">5.1</span>         <span class="fl">1.9</span>  virginica</span>
+<span id="cb3-146"><a href="#cb3-146" tabindex="-1"></a><span class="dv">144</span>          <span class="fl">6.8</span>         <span class="fl">3.2</span>          <span class="fl">5.9</span>         <span class="fl">2.3</span>  virginica</span>
+<span id="cb3-147"><a href="#cb3-147" tabindex="-1"></a><span class="dv">145</span>          <span class="fl">6.7</span>         <span class="fl">3.3</span>          <span class="fl">5.7</span>         <span class="fl">2.5</span>  virginica</span>
+<span id="cb3-148"><a href="#cb3-148" tabindex="-1"></a><span class="dv">146</span>          <span class="fl">6.7</span>         <span class="fl">3.0</span>          <span class="fl">5.2</span>         <span class="fl">2.3</span>  virginica</span>
+<span id="cb3-149"><a href="#cb3-149" tabindex="-1"></a><span class="dv">147</span>          <span class="fl">6.3</span>         <span class="fl">2.5</span>          <span class="fl">5.0</span>         <span class="fl">1.9</span>  virginica</span>
+<span id="cb3-150"><a href="#cb3-150" tabindex="-1"></a><span class="dv">148</span>          <span class="fl">6.5</span>         <span class="fl">3.0</span>          <span class="fl">5.2</span>         <span class="fl">2.0</span>  virginica</span>
+<span id="cb3-151"><a href="#cb3-151" tabindex="-1"></a><span class="dv">149</span>          <span class="fl">6.2</span>         <span class="fl">3.4</span>          <span class="fl">5.4</span>         <span class="fl">2.3</span>  virginica</span>
+<span id="cb3-152"><a href="#cb3-152" tabindex="-1"></a><span class="dv">150</span>          <span class="fl">5.9</span>         <span class="fl">3.0</span>          <span class="fl">5.1</span>         <span class="fl">1.8</span>  virginica</span></code></pre></div>
 </details>
 <p><br></p>
 </div>
 <div id="tibble" class="section level3">
 <h3>tibble</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a> iris<span class="sc">%&gt;%</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">as_tibble</span>()<span class="sc">%&gt;%</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  details<span class="sc">::</span><span class="fu">details</span>(<span class="at">summary =</span> <span class="st">&#39;tibble&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a> iris<span class="sc">|&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">as_tibble</span>()<span class="sc">|&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>  details<span class="sc">::</span><span class="fu">details</span>(<span class="at">summary =</span> <span class="st">&#39;tibble&#39;</span>)</span></code></pre></div>
 <details closed>
 <summary>
 <span title="Click to Expand"> tibble </span>
 </summary>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># A tibble: 150 × 5</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>   Sepal.Length Sepal.Width Petal.Length Petal.Width Species</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>          <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span>       <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>        <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>       <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>fct<span class="sc">&gt;</span>  </span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a> <span class="dv">1</span>          <span class="fl">5.1</span>         <span class="fl">3.5</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span> setosa </span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a> <span class="dv">2</span>          <span class="fl">4.9</span>         <span class="dv">3</span>            <span class="fl">1.4</span>         <span class="fl">0.2</span> setosa </span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a> <span class="dv">3</span>          <span class="fl">4.7</span>         <span class="fl">3.2</span>          <span class="fl">1.3</span>         <span class="fl">0.2</span> setosa </span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a> <span class="dv">4</span>          <span class="fl">4.6</span>         <span class="fl">3.1</span>          <span class="fl">1.5</span>         <span class="fl">0.2</span> setosa </span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a> <span class="dv">5</span>          <span class="dv">5</span>           <span class="fl">3.6</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span> setosa </span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a> <span class="dv">6</span>          <span class="fl">5.4</span>         <span class="fl">3.9</span>          <span class="fl">1.7</span>         <span class="fl">0.4</span> setosa </span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a> <span class="dv">7</span>          <span class="fl">4.6</span>         <span class="fl">3.4</span>          <span class="fl">1.4</span>         <span class="fl">0.3</span> setosa </span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a> <span class="dv">8</span>          <span class="dv">5</span>           <span class="fl">3.4</span>          <span class="fl">1.5</span>         <span class="fl">0.2</span> setosa </span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a> <span class="dv">9</span>          <span class="fl">4.4</span>         <span class="fl">2.9</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span> setosa </span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span>          <span class="fl">4.9</span>         <span class="fl">3.1</span>          <span class="fl">1.5</span>         <span class="fl">0.1</span> setosa </span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co"># … with 140 more rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="co"># A tibble: 150 × 5</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>   Sepal.Length Sepal.Width Petal.Length Petal.Width Species</span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>          <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span>       <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>        <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>       <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>fct<span class="sc">&gt;</span>  </span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a> <span class="dv">1</span>          <span class="fl">5.1</span>         <span class="fl">3.5</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span> setosa </span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a> <span class="dv">2</span>          <span class="fl">4.9</span>         <span class="dv">3</span>            <span class="fl">1.4</span>         <span class="fl">0.2</span> setosa </span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a> <span class="dv">3</span>          <span class="fl">4.7</span>         <span class="fl">3.2</span>          <span class="fl">1.3</span>         <span class="fl">0.2</span> setosa </span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a> <span class="dv">4</span>          <span class="fl">4.6</span>         <span class="fl">3.1</span>          <span class="fl">1.5</span>         <span class="fl">0.2</span> setosa </span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a> <span class="dv">5</span>          <span class="dv">5</span>           <span class="fl">3.6</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span> setosa </span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a> <span class="dv">6</span>          <span class="fl">5.4</span>         <span class="fl">3.9</span>          <span class="fl">1.7</span>         <span class="fl">0.4</span> setosa </span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a> <span class="dv">7</span>          <span class="fl">4.6</span>         <span class="fl">3.4</span>          <span class="fl">1.4</span>         <span class="fl">0.3</span> setosa </span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a> <span class="dv">8</span>          <span class="dv">5</span>           <span class="fl">3.4</span>          <span class="fl">1.5</span>         <span class="fl">0.2</span> setosa </span>
+<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a> <span class="dv">9</span>          <span class="fl">4.4</span>         <span class="fl">2.9</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span> setosa </span>
+<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a><span class="dv">10</span>          <span class="fl">4.9</span>         <span class="fl">3.1</span>          <span class="fl">1.5</span>         <span class="fl">0.1</span> setosa </span>
+<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a><span class="co"># ℹ 140 more rows</span></span></code></pre></div>
 </details>
 <p><br></p>
 </div>
 <div id="list" class="section level2">
 <h2>list</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">list</span>(<span class="at">a =</span> <span class="dv">1</span>,<span class="at">b =</span> <span class="fu">head</span>(iris))<span class="sc">%&gt;%</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  details<span class="sc">::</span><span class="fu">details</span>(<span class="at">summary =</span> <span class="st">&#39;list&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a> <span class="fu">list</span>(<span class="at">a =</span> <span class="dv">1</span>,<span class="at">b =</span> <span class="fu">head</span>(iris))<span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>  details<span class="sc">::</span><span class="fu">details</span>(<span class="at">summary =</span> <span class="st">&#39;list&#39;</span>)</span></code></pre></div>
 <details closed>
 <summary>
 <span title="Click to Expand"> list </span>
 </summary>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span>a</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">1</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span>b</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  Sepal.Length Sepal.Width Petal.Length Petal.Width Species</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>          <span class="fl">5.1</span>         <span class="fl">3.5</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span>  setosa</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>          <span class="fl">4.9</span>         <span class="fl">3.0</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span>  setosa</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span>          <span class="fl">4.7</span>         <span class="fl">3.2</span>          <span class="fl">1.3</span>         <span class="fl">0.2</span>  setosa</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span>          <span class="fl">4.6</span>         <span class="fl">3.1</span>          <span class="fl">1.5</span>         <span class="fl">0.2</span>  setosa</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span>          <span class="fl">5.0</span>         <span class="fl">3.6</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span>  setosa</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span>          <span class="fl">5.4</span>         <span class="fl">3.9</span>          <span class="fl">1.7</span>         <span class="fl">0.4</span>  setosa</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="sc">$</span>a</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">1</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="sc">$</span>b</span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>  Sepal.Length Sepal.Width Petal.Length Petal.Width Species</span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="dv">1</span>          <span class="fl">5.1</span>         <span class="fl">3.5</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span>  setosa</span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a><span class="dv">2</span>          <span class="fl">4.9</span>         <span class="fl">3.0</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span>  setosa</span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a><span class="dv">3</span>          <span class="fl">4.7</span>         <span class="fl">3.2</span>          <span class="fl">1.3</span>         <span class="fl">0.2</span>  setosa</span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a><span class="dv">4</span>          <span class="fl">4.6</span>         <span class="fl">3.1</span>          <span class="fl">1.5</span>         <span class="fl">0.2</span>  setosa</span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a><span class="dv">5</span>          <span class="fl">5.0</span>         <span class="fl">3.6</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span>  setosa</span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a><span class="dv">6</span>          <span class="fl">5.4</span>         <span class="fl">3.9</span>          <span class="fl">1.7</span>         <span class="fl">0.4</span>  setosa</span></code></pre></div>
 </details>
 <p><br></p>
 </div>
 <div id="plots" class="section level2">
 <h2>plots</h2>
-<p>Plots can be rendered and uploaded to <a href="https://imgur.com">imgur</a> (default) or read in from a local path. In this example we use a local path in order to abuse the host site.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">details</span>(</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(<span class="at">x=</span>mtcars<span class="sc">$</span>mpg,<span class="at">y=</span>mtcars<span class="sc">$</span>wt),</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">summary =</span> <span class="st">&#39;plots&#39;</span>,</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">imgur =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
-<details closed>
-<summary>
-<span title="Click to Expand"> plots </span>
-</summary>
-<p><img src="data:image/png;base64,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" width="480" /></p>
-</details>
-<p><br></p>
+<p>Plots can be rendered and uploaded to <a href="https://imgur.com">imgur</a> (default) or read in from a local
+path. In this example we use a local path in order to abuse the host
+site.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="fu">details</span>(</span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>  <span class="fu">plot</span>(<span class="at">x=</span>mtcars<span class="sc">$</span>mpg,<span class="at">y=</span>mtcars<span class="sc">$</span>wt),</span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>  <span class="at">summary =</span> <span class="st">&#39;plots&#39;</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>  <span class="at">imgur =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a><span class="co">#&gt; details knitr plots in winos disabled</span></span></code></pre></div>
+<p><img role="img" src="data:image/png;base64,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" width="480" /></p>
 </div>
 <div id="tables" class="section level2">
 <h2>tables</h2>
-<p>Tables can be wrapped in a details block by setting the <code>lang</code> to ‘none’</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>iris<span class="sc">%&gt;%</span><span class="fu">head</span>()<span class="sc">%&gt;%</span>knitr<span class="sc">::</span><span class="fu">kable</span>()<span class="sc">%&gt;%</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">details</span>(</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">summary =</span> <span class="st">&#39;tables&#39;</span>,</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">lang =</span> <span class="st">&#39;none&#39;</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>Tables can be wrapped in a details block by setting the
+<code>lang</code> to ‘none’</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>iris<span class="sc">|&gt;</span><span class="fu">head</span>() <span class="sc">|&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>() <span class="sc">|&gt;</span></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>  <span class="fu">details</span>(</span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>    <span class="at">summary =</span> <span class="st">&#39;tables&#39;</span>,</span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>    <span class="at">lang =</span> <span class="st">&#39;none&#39;</span></span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>)</span></code></pre></div>
 <details closed>
 <summary>
 <span title="Click to Expand"> tables </span>
